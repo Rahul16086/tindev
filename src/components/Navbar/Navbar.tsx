@@ -1,6 +1,7 @@
 import React from "react";
 import { Link } from "react-router-dom";
 import "./Navbar.css";
+import Button from "../Button/Button";
 
 const Navbar = () => {
   return (
@@ -12,7 +13,7 @@ const Navbar = () => {
         <span>How to</span>
       </div>
       <div className={"header__rightContainer"}>
-        <button>Logout</button>
+        <Button title={"LOGOUT"} />
       </div>
     </header>
   );

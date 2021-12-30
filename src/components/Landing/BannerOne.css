@@ -1,0 +1,42 @@
+.bannerOne__mainContainer{
+    background: rgb(18,65,67);
+    background: linear-gradient(225deg, rgba(18,65,67,1) 0%, rgba(192,247,183,1) 100%);
+    height: calc(100vh - 10vh);
+    display: flex;
+}
+
+.bannerOne__leftContainer,.bannerOne__rightContainer{
+    width: 50%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.bannerOne__leftContainer h1{
+    font-size: 2rem;
+    font-style: italic;
+    max-width: 350px;
+    margin-bottom: 10px;
+}
+
+.bannerOne__leftContainer p{
+    font-size: 1rem;
+    max-width: 350px;
+    margin-bottom: 10px;
+}
+
+.bannerOne__leftContainer button{
+    background: #124143;
+    border: none;
+    width: 10vw;
+    max-width: 100px;
+    height: 5vh;
+    border-radius: 10px;
+    cursor: pointer;
+    transition: 1s;
+}
+
+.bannerOne__leftContainer button:hover{
+    background-color: #141B29;
+}

@@ -1,0 +1,46 @@
+.bannerOne__card{
+    background: rgba( 255, 255, 255, 0.25 );
+    box-shadow: 0 8px 32px 0 rgba( 31, 38, 135, 0.37 );
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    height: 70%;
+    width: 50%;
+    max-width: 250px;
+    min-width: 220px;
+}
+.bannerOne__card img{
+    transform: scale(0.8);
+    width: 100%;
+    height: 40%;
+}
+
+.bannerOne__card__nameAge{
+    display: flex;
+    align-items: center;
+    height: 15%;
+}
+
+.bannerOne__card__nameAge img{
+    transform:scale(0.8);
+    padding-right: 6rem;
+}
+
+.bannerOne__card__nameAge h1{
+    margin: 0 10px 0 10px;
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+}
+
+.bannerOne__card__nameAge p {
+    height: 100%;
+    display: flex;
+    align-items: flex-end;
+    padding-bottom: 15px;
+}
+
+.bannerOne__card__designation{
+    height: 20%;
+}

@@ -1,0 +1,23 @@
+.button__common{
+    background-image: linear-gradient(to right, #124143 0%, #5ac994 51%, #124143 100%);
+    width: 14vw;
+    min-width: 100px;
+    max-width: 150px;
+    height: 6vh;
+    text-align: center;
+    text-transform: uppercase;
+    transition: 1s;
+    background-size: 200% auto;
+    color: white;
+    border-radius: 10px;
+    display: block;
+    border: none;
+    cursor: pointer;
+    font-size: 1rem;
+}
+
+.button__common:hover{
+    background-position: right center;
+    color: #fff;
+    text-decoration: none;
+}
