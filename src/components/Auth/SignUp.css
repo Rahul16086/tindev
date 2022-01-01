@@ -1,0 +1,88 @@
+.signup__mainContainer {
+    background-color: #141B29;
+    height: calc(100vh - 10vh);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1rem;
+}
+
+.signup__form{
+    background: rgba(255, 255, 255, 0.15);
+    box-shadow: 0 8px 32px 0 rgb(25, 197, 131);
+    backdrop-filter: blur( 4px );
+    -webkit-backdrop-filter: blur( 4px );
+    border-radius: 10px;
+    border: 1px solid rgba( 255, 255, 255, 0.18 );
+    width: 70%;
+    max-width: 500px;
+    height: 85%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    padding: 20px;
+}
+
+.signup__form label{
+    margin-left: 5px;
+}
+
+.signup__form input{
+    padding: 0 2px 0 5px;
+    border-radius: 30px;
+    border: 2px solid #5ac994;
+    color: #ffffff;
+    background-color: transparent;
+    width: 62%;
+}
+
+.signup__form__nameAge{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+}
+
+.signup__form__nameAge,.signup__form__email,.signup__form__phone,.signup__form__location,.signup__form__lookingFor,
+.signup__form__remote,.signup__form__experience,.signup__form__radius,.signup__form__password__pass,.signup__form__password__confirmPass{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 8px 0 8px 0;
+}
+
+.signup__form__nameAge label{
+    margin-right: 10px;
+}
+
+.signup__form__nameAge__name{
+    display: flex;
+    width: 80%;
+}
+
+.signup__form__nameAge__age{
+    display: flex;
+    width: 40%;
+}
+
+.signup__form select {
+    border-radius: 30px;
+    border: 2px solid #5ac994;
+    color: #ffffff;
+    background-color: transparent;
+    width: 40%;
+    text-align: center;
+}
+
+.signup__form select > option{
+    color: #141B29;
+}
+
+.signup__form__submit{
+    display: flex;
+    justify-content: center;
+}
+
+input:focus {
+    outline: none !important;
+    box-shadow: 0 0 5px #5ac994;
+}

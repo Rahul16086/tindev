@@ -5,6 +5,7 @@
     display: flex;
     align-items: center;
     position: sticky;
+    border-bottom: 2px solid #5ac994;
 }
 
 .header__mainContainer a{
@@ -27,7 +28,13 @@
 .header__leftContainer span {
     font-size: 1rem;
     cursor: pointer;
+    transition: .1s;
 }
+
+.header__leftContainer span:hover{
+    border-bottom: 2px solid #5ac994;
+}
+
 .header__rightContainer{
     width: 50%;
     display: flex;

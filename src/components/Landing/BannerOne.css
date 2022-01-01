@@ -14,16 +14,16 @@
 }
 
 .bannerOne__leftContainer h1{
+    margin: 10px;
     font-size: 2rem;
     font-style: italic;
     max-width: 350px;
-    margin-bottom: 10px;
 }
 
 .bannerOne__leftContainer p{
+    margin: 10px;
     font-size: 1rem;
     max-width: 350px;
-    margin-bottom: 10px;
 }
 
 .bannerOne__leftContainer button{

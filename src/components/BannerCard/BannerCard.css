@@ -10,37 +10,55 @@
     max-width: 250px;
     min-width: 220px;
 }
+
+.bannerOne__card__profilePicture{
+    height: 50%;
+}
+
 .bannerOne__card img{
     transform: scale(0.8);
     width: 100%;
-    height: 40%;
-}
-
-.bannerOne__card__nameAge{
-    display: flex;
-    align-items: center;
-    height: 15%;
-}
-
-.bannerOne__card__nameAge img{
-    transform:scale(0.8);
-    padding-right: 6rem;
-}
-
-.bannerOne__card__nameAge h1{
-    margin: 0 10px 0 10px;
     height: 100%;
+}
+
+.bannerOne__card__details{
+    height: 50%;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    justify-content: center;
+}
+
+.bannerOne__card__details__nameAge{
     display: flex;
     align-items: flex-end;
+    width: 100%;
+    margin: 5px;
 }
 
-.bannerOne__card__nameAge p {
-    height: 100%;
-    display: flex;
-    align-items: flex-end;
-    padding-bottom: 15px;
+.bannerOne__card__details__nameAge__name{
+    font-size: 2rem;
+    font-weight: bold;
 }
 
-.bannerOne__card__designation{
-    height: 20%;
+.bannerOne__card__details__nameAge__age{
+    font-size: 1rem;
+    height: 65%;
+    margin-left: 5px;
+}
+
+.bannerOne__card__details__designation{
+    margin: 5px;
+    font-size: 1rem;
+}
+
+.bannerOne__card__details__designation img{
+    object-fit: contain;
+    height: 50%;
+}
+
+.bannerOne__card__details hr{
+    width: 99%;
+    border: 1px solid white;
+    background-color: white;
 }

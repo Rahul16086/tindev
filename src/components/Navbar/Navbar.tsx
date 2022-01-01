@@ -1,5 +1,4 @@
 import React from "react";
-import { Link } from "react-router-dom";
 import "./Navbar.css";
 import Button from "../Button/Button";
 
@@ -10,10 +9,12 @@ const Navbar = () => {
         <a href={"/"}>
           <h1>{"<tinDev/>"}</h1>
         </a>
-        <span>How to</span>
+        <div className={"header__leftContainer__option"}>
+          <span>How to</span>
+        </div>
       </div>
       <div className={"header__rightContainer"}>
-        <Button title={"LOGOUT"} />
+        <Button title={"Login"} />
       </div>
     </header>
   );

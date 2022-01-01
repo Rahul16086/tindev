@@ -1,6 +1,5 @@
 import React from "react";
 import "./BannerOne.css";
-import Button from "../Button/Button";
 import BannerCard from "../BannerCard/BannerCard";
 
 const BannerOne = () => {
