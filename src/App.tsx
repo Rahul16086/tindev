@@ -1,18 +1,44 @@
 import React from "react";
 import Navbar from "./components/Navbar/Navbar";
-import BannerOne from "./components/Landing/BannerOne";
-import BannerTwo from "./components/Landing/BannerTwo";
+import LandingPage from "./components/LandingPage/LandingPage";
+import { Route, Routes } from "react-router-dom";
 import SignUp from "./components/Auth/SignUp";
+import Login from "./components/Auth/Login";
 
-function App() {
+const App: React.FC = () => {
   return (
     <div className="App">
-      <Navbar />
-      <SignUp />
-      {/*<BannerOne />*/}
-      {/*<BannerTwo />*/}
+      <Routes>
+        <Route
+          path="/"
+          element={
+            <>
+              <Navbar />
+              <LandingPage />
+            </>
+          }
+        />
+        <Route
+          path={"/signup"}
+          element={
+            <>
+              <Navbar />
+              <SignUp />
+            </>
+          }
+        />
+        <Route
+          path={"/login"}
+          element={
+            <>
+              <Navbar />
+              <Login />
+            </>
+          }
+        />
+      </Routes>
     </div>
   );
-}
+};
 
 export default App;

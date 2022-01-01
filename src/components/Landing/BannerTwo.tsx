@@ -3,6 +3,7 @@ import "./BannerTwo.css";
 // @ts-ignore
 import iphone from "../../Apple iPhone 11 Pro Space Grey.png";
 import Button from "../Button/Button";
+import { Link } from "react-router-dom";
 
 const BannerTwo = () => {
   return (
@@ -21,7 +22,9 @@ const BannerTwo = () => {
           </div>
         </div>
         <footer className={"bannerTwo__mainContainer__partTwo"}>
-          <Button title={"Get In"} />
+          <Link to={"/signup"}>
+            <Button title={"Get In"} />
+          </Link>
           <hr />
           <ul>
             <li>

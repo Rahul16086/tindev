@@ -18,6 +18,10 @@
     height: 20%;
 }
 
+.bannerTwo__mainContainer__partTwo > a{
+    text-decoration: none;
+}
+
 .bannerTwo__mainContainer__partTwo hr{
     margin-top: 10px;
     width: 98%;
