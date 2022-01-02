@@ -2,6 +2,7 @@ import React from "react";
 import "./Profile.css";
 // @ts-ignore
 import profilePicture from "../../../Ellipse 1.svg";
+import { Link } from "react-router-dom";
 
 const Profile: React.FC = () => {
   return (
@@ -9,11 +10,17 @@ const Profile: React.FC = () => {
       <div className={"matchmaker__leftPane"}>
         <div className={"matchmaker__leftPane__nav profile__leftPane__nav"}>
           <div className={"profile__leftPane__nav__partOne"}>
-            <img src={profilePicture} alt={"ProfilePicture"} />
-            <p>Lucifer</p>
+            <div className={"matchmaker__leftPane__nav__profile"}>
+              <img src={profilePicture} alt={"ProfilePicture"} />
+              <p>Lucifer</p>
+            </div>
           </div>
           <div className={"profile__leftPane__nav__partTwo"}>
-            <button>{"<Match/>"}</button>
+            <Link to={"/app/matchmaker"}>
+              <button className={"profile__leftPane__nav__partTwo__button"}>
+                {"<match/>"}
+              </button>
+            </Link>
           </div>
         </div>
         <div className={"profile__leftPane__settings"}>
@@ -42,10 +49,12 @@ const Profile: React.FC = () => {
           </div>
         </div>
         <div className={"profile__leftPane__actions"}>
-          <div className={"profile__leftPane__actions__logout"}>Logout</div>
-          <div className={"profile__leftPane__actions__delete"}>
+          <Link to={"/"} className={"profile__leftPane__actions__logout"}>
+            Logout
+          </Link>
+          <Link to={"/"} className={"profile__leftPane__actions__delete"}>
             Delete Account
-          </div>
+          </Link>
         </div>
       </div>
       <div className={"matchmaker__rightPane"}>Right</div>

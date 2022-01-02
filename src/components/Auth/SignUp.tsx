@@ -1,6 +1,7 @@
 import React from "react";
 import "./SignUp.css";
 import Button from "../Button/Button";
+import { Link } from "react-router-dom";
 
 const SignUp = () => {
   return (
@@ -13,9 +14,10 @@ const SignUp = () => {
           </div>
           <div className={"signup__form__nameAge__age"}>
             <label>Age</label>
-            <input type={"number"} id={"age"} />
+            <input type={"number"} />
           </div>
         </div>
+
         <div className={"signup__form__email"}>
           <label>E-Mail</label>
           <input type={"email"} />
@@ -23,39 +25,6 @@ const SignUp = () => {
         <div className={"signup__form__phone"}>
           <label>Phone</label>
           <input type={"tel"} />
-        </div>
-        <div className={"signup__form__location"}>
-          <label>Location</label>
-          <input type={"text"} placeholder={"Enter City"} />
-        </div>
-        <div className={"signup__form__lookingFor"}>
-          <label>Looking For</label>
-          <select>
-            <option value={"front-end"}>Front-End Dev</option>
-            <option value={"back-end"}>Back-End Dev</option>
-            <option value={"full-stack"}>Full-Stack Dev</option>
-            <option value={"does"}>Does Programming</option>
-          </select>
-        </div>
-        <div className={"signup__form__remote"}>
-          <label>Remote Availability</label>
-          <select>
-            <option value={"yes"}>Yes</option>
-            <option value={"no"}>No</option>
-          </select>
-        </div>
-        <div className={"signup__form__experience"}>
-          <label>Experience Level</label>
-          <select>
-            <option>None</option>
-            <option>Low (1-2y)</option>
-            <option>Medium (2-5y)</option>
-            <option>High (5y +)</option>
-          </select>
-        </div>
-        <div className={"signup__form__radius"}>
-          <label>Match Radius (miles)</label>
-          <input type={"number"} />
         </div>
         <div className={"signup__form__password__pass"}>
           <label>Password</label>
@@ -66,7 +35,9 @@ const SignUp = () => {
           <input type={"password"} />
         </div>
         <div className={"signup__form__submit"}>
-          <Button title={"Signup"} />
+          <Link to={"/signupTwo"}>
+            <Button title={"Signup"} />
+          </Link>
         </div>
       </form>
     </div>

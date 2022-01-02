@@ -1,6 +1,7 @@
 import React from "react";
 import "./Login.css";
 import Button from "../Button/Button";
+import { Link } from "react-router-dom";
 
 const Login = () => {
   return (
@@ -15,7 +16,9 @@ const Login = () => {
           <input type={"password"} required />
         </div>
         <div className={"login__form__login"}>
-          <Button title={"Login"} />
+          <Link to={"/app/matchmaker"}>
+            <Button title={"Login"} />
+          </Link>
         </div>
       </form>
     </div>

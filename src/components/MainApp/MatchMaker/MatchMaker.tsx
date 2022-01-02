@@ -4,14 +4,19 @@ import "./MatchMaker.css";
 import profilePicture from "../../../Ellipse 1.svg";
 import RightPaneCardMain from "./RightPaneCards/RightPaneCardMain";
 import RightPaneCardDevInfo from "./RightPaneCards/RightPaneCardDevInfo";
+import { Link } from "react-router-dom";
 
 const MatchMaker: React.FC = () => {
   return (
     <div className={"matchmaker__mainContainer"}>
       <div className={"matchmaker__leftPane"}>
         <div className={"matchmaker__leftPane__nav"}>
-          <img src={profilePicture} alt={"profilePicture"} />
-          <h1>Lucifer</h1>
+          <Link to={"/app/profile"}>
+            <div className={"matchmaker__leftPane__nav__profile"}>
+              <img src={profilePicture} alt={"profilePicture"} />
+              <p>Lucifer</p>
+            </div>
+          </Link>
         </div>
         <div className={"matchmaker__leftPane__options"}>
           <p>Matches</p>

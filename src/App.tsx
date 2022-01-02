@@ -6,6 +6,7 @@ import SignUp from "./components/Auth/SignUp";
 import Login from "./components/Auth/Login";
 import MatchMaker from "./components/MainApp/MatchMaker/MatchMaker";
 import Profile from "./components/MainApp/Profile/Profile";
+import SignUpTwo from "./components/Auth/SignUpTwo";
 
 const App: React.FC = () => {
   return (
@@ -26,6 +27,15 @@ const App: React.FC = () => {
             <>
               <Navbar />
               <SignUp />
+            </>
+          }
+        />
+        <Route
+          path={"/signupTwo"}
+          element={
+            <>
+              <Navbar />
+              <SignUpTwo />
             </>
           }
         />

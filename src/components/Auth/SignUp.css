@@ -16,7 +16,6 @@
     border: 1px solid rgba( 255, 255, 255, 0.18 );
     width: 70%;
     max-width: 500px;
-    height: 85%;
     display: flex;
     justify-content: center;
     flex-direction: column;
@@ -43,11 +42,22 @@
 }
 
 .signup__form__nameAge,.signup__form__email,.signup__form__phone,.signup__form__location,.signup__form__lookingFor,
-.signup__form__remote,.signup__form__experience,.signup__form__radius,.signup__form__password__pass,.signup__form__password__confirmPass{
+.signup__form__remote,.signup__form__experience,.signup__form__radius,.signup__form__password__pass,.signup__form__password__confirmPass,
+.signup__form__github,.signup__form__portfolio,.signup__form__linkedin,.signup__form__summary{
     display: flex;
     align-items: center;
     justify-content: space-between;
     margin: 8px 0 8px 0;
+}
+
+.signup__form__summary textarea{
+    padding: 0 2px 0 5px;
+    border-radius: 20px;
+    border: 2px solid #5ac994;
+    color: #ffffff;
+    background-color: transparent;
+    width: 62%;
+    resize: vertical;
 }
 
 .signup__form__nameAge label{
@@ -57,6 +67,11 @@
 .signup__form__nameAge__name{
     display: flex;
     width: 80%;
+    justify-content: space-between;
+}
+
+.signup__form__nameAge__name input{
+    width: 100%;
 }
 
 .signup__form__nameAge__age{

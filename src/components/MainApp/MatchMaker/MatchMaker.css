@@ -16,17 +16,26 @@
     align-items: center;
 }
 
-.matchmaker__leftPane__nav >h1{
-    color: #141B29;
-    font-size: 1.5rem;
-    margin-left: 5px;
-    font-weight: 500;
+.matchmaker__leftPane__nav__profile{
+    display: flex;
+    align-items: center;
+    margin-left: 10px;
+    cursor: pointer;
 }
 
-.matchmaker__leftPane__nav > img{
-    transform: scale(0.8);
-    height: 100%;
+.matchmaker__leftPane__nav__profile:hover{
+    background-color: rgba(20, 27, 41, 0.37);
+    border-radius: 50px;
+}
+
+.matchmaker__leftPane__nav__profile p{
+    color: #141B29;
     margin-left: 10px;
+    margin-right: 10px;
+}
+
+.matchmaker__leftPane__nav__profile img{
+    width: 40px;
 }
 
 .matchmaker__leftPane__options{

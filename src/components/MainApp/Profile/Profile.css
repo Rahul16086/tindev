@@ -18,11 +18,9 @@
 }
 .profile__leftPane__nav__partOne img{
     height: 60%;
-    margin-left: 10px;
 }
 
 .profile__leftPane__nav__partTwo{
-    padding-right: 2px;
     width: 40%;
     display: flex;
     align-items: center;
@@ -30,17 +28,16 @@
 }
 
 .profile__leftPane__nav__partTwo button{
-    width: 85%;
     cursor: pointer;
-    min-width: 40px;
-    font-size: 1.5vw;
+    min-width: 50px;
     max-width: 100px;
     color: #141B29;
     background-color: rgba(0, 0, 0, 0.2);
     border-radius: 50px;
     border: none;
-    margin-right: 10%;
     transition: 1s;
+    padding: 2px;
+    margin-right: 10px;
 }
 
 .profile__leftPane__nav__partTwo button:hover{
