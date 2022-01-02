@@ -1,0 +1,127 @@
+.profile__mainContainer {
+    background-color: #141B29;
+    height: 100vh;
+    display: flex;
+}
+
+.profile__leftPane__nav__partOne{
+    height: 100%;
+    width: 60%;
+    display: flex;
+    align-items: center;
+}
+
+.profile__leftPane__nav__partOne p{
+    color: #141B29;
+    margin-left: 10px;
+
+}
+.profile__leftPane__nav__partOne img{
+    height: 60%;
+    margin-left: 10px;
+}
+
+.profile__leftPane__nav__partTwo{
+    padding-right: 2px;
+    width: 40%;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.profile__leftPane__nav__partTwo button{
+    width: 85%;
+    cursor: pointer;
+    min-width: 40px;
+    font-size: 1.5vw;
+    max-width: 100px;
+    color: #141B29;
+    background-color: rgba(0, 0, 0, 0.2);
+    border-radius: 50px;
+    border: none;
+    margin-right: 10%;
+    transition: 1s;
+}
+
+.profile__leftPane__nav__partTwo button:hover{
+    background-color: rgba(0, 0, 0, 0.4);
+}
+
+.profile__leftPane__settings{
+    height: 75vh;
+}
+
+.profile__leftPane__settings__account__container{
+    height: 50%;
+}
+
+.profile__leftPane__settings__account{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    margin-top: 5px;
+
+}
+
+.profile__leftPane__settings__account button{
+    color: #141B29;
+    background-color: #5ac994;
+    border: none;
+    border-radius: 50px;
+    width: 25%;
+    min-width: 48px;
+    max-width: 60px;
+    cursor: pointer;
+    transition: .5s;
+}
+
+.profile__leftPane__settings__account button:hover{
+    background-color: rgba(92, 210, 149, 0.35);
+}
+
+.profile__leftPane__settings__account__option{
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin: 5px;
+}
+
+.profile__leftPane__settings__account__content{
+    font-weight: 200;
+}
+
+.profile__leftPane__settings__discovery__container{
+    height: 50%;
+}
+
+.profile__leftPane__settings__discovery{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.profile__leftPane__actions{
+    height: 12%;
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+}
+
+.profile__leftPane__actions__logout,.profile__leftPane__actions__delete {
+    border: 1px solid white;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    width: 50%;
+    transition: 500ms;
+}
+
+.profile__leftPane__actions__logout:hover{
+    background-color: #5ac994;
+}
+
+.profile__leftPane__actions__delete:hover{
+    background-color: #ce0404;
+}

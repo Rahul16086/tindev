@@ -1,0 +1,61 @@
+.matchmaker__mainContainer{
+    background-color: #141B29;
+    height: 100vh;
+    display: flex;
+}
+
+.matchmaker__leftPane{
+    width: 30%;
+    background-color: #124143;
+}
+
+.matchmaker__leftPane__nav{
+    height: 12vh;
+    background-color: #5ac994;
+    display: flex;
+    align-items: center;
+}
+
+.matchmaker__leftPane__nav >h1{
+    color: #141B29;
+    font-size: 1.5rem;
+    margin-left: 5px;
+    font-weight: 500;
+}
+
+.matchmaker__leftPane__nav > img{
+    transform: scale(0.8);
+    height: 100%;
+    margin-left: 10px;
+}
+
+.matchmaker__leftPane__options{
+    display: flex;
+    align-items: center;
+    justify-content: space-around;
+    height: 10vh;
+}
+
+.matchmaker__leftPane__options > p{
+    cursor: pointer;
+    font-weight: 300;
+}
+
+.matchmaker__leftPane__options > p:hover{
+    border-bottom: 2px solid #5ac994;
+}
+
+.matchmaker__leftPane__content{
+    height: 78vh;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 200;
+}
+
+.matchmaker__rightPane{
+    width: 70%;
+    display: flex;
+    align-items: center;
+    justify-content: space-evenly;
+}

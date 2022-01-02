@@ -4,6 +4,8 @@ import LandingPage from "./components/LandingPage/LandingPage";
 import { Route, Routes } from "react-router-dom";
 import SignUp from "./components/Auth/SignUp";
 import Login from "./components/Auth/Login";
+import MatchMaker from "./components/MainApp/MatchMaker/MatchMaker";
+import Profile from "./components/MainApp/Profile/Profile";
 
 const App: React.FC = () => {
   return (
@@ -36,6 +38,8 @@ const App: React.FC = () => {
             </>
           }
         />
+        <Route path={"/app/matchmaker"} element={<MatchMaker />} />
+        <Route path={"/app/profile"} element={<Profile />} />
       </Routes>
     </div>
   );
