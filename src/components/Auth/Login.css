@@ -15,6 +15,22 @@
     font-weight: lighter;
 }
 
+.login__form__error{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.login__form__error p{
+    color: red;
+    font-weight: 300;
+}
+
+.login__form label{
+    font-weight: 200;
+    letter-spacing: 1px;
+}
+
 .login__form__email,.login__form__password{
     display: flex;
     align-items: center;

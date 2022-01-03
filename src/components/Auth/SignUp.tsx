@@ -1,15 +1,15 @@
-import React, { useState } from "react";
+import React, { useRef, useState } from "react";
 import "./SignUp.css";
 import Button from "../Button/Button";
 import { useNavigate } from "react-router-dom";
 
 const SignUp: React.FC = () => {
-  const nameRef = React.createRef<HTMLInputElement>();
-  const ageRef = React.createRef<HTMLInputElement>();
-  const emailRef = React.createRef<HTMLInputElement>();
-  const phoneRef = React.createRef<HTMLInputElement>();
-  const passwordRef = React.createRef<HTMLInputElement>();
-  const confirmPasswordRef = React.createRef<HTMLInputElement>();
+  const nameRef = useRef() as React.RefObject<any>;
+  const ageRef = useRef() as React.RefObject<any>;
+  const emailRef = useRef() as React.RefObject<any>;
+  const phoneRef = useRef() as React.RefObject<any>;
+  const passwordRef = useRef() as React.RefObject<any>;
+  const confirmPasswordRef = useRef() as React.RefObject<any>;
   const navigate = useNavigate();
 
   const [error, setError] = useState("");
@@ -45,12 +45,13 @@ const SignUp: React.FC = () => {
       });
 
       const result = await dbSignup;
+
       let resultJson;
+
       if (result.status === 422) {
         throw new Error("Validation failed");
       }
       if (result.status !== 200 && result.status !== 201) {
-        console.log("Error!");
         throw new Error("Creating a user failed!");
       }
       resultJson = await result.json();
