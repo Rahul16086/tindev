@@ -2,12 +2,15 @@ import React, { useRef, useState } from "react";
 import "./Login.css";
 import Button from "../Button/Button";
 import { useNavigate } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setAuth } from "../../store/userSlice";
 
 const Login = () => {
   const emailRef = useRef() as React.RefObject<any>;
   const passwordRef = useRef() as React.RefObject<any>;
   const navigate = useNavigate();
   const [error, setError] = useState("");
+  const dispatch = useDispatch();
 
   const loginHandler = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
@@ -45,6 +48,7 @@ const Login = () => {
       console.log(resultJson);
 
       if (resultJson.userId) {
+        dispatch(setAuth({ token: resultJson.token }));
         navigate("/app/matchmaker");
       }
     } catch (e) {

@@ -3,8 +3,20 @@ import "./Profile.css";
 // @ts-ignore
 import profilePicture from "../../../Ellipse 1.svg";
 import { Link } from "react-router-dom";
+import { useDispatch } from "react-redux";
+import { setAuthLogout } from "../../../store/userSlice";
+import Button from "../../Button/Button";
+import { useNavigate } from "react-router-dom";
 
 const Profile: React.FC = () => {
+  const dispatch = useDispatch();
+  const navigate = useNavigate();
+
+  const logoutHandler = () => {
+    dispatch(setAuthLogout());
+    navigate("/");
+  };
+
   return (
     <div className={"profile__mainContainer"}>
       <div className={"matchmaker__leftPane"}>
@@ -49,9 +61,7 @@ const Profile: React.FC = () => {
           </div>
         </div>
         <div className={"profile__leftPane__actions"}>
-          <Link to={"/"} className={"profile__leftPane__actions__logout"}>
-            Logout
-          </Link>
+          <Button title={"Logout"} onClick={logoutHandler} />
           <Link to={"/"} className={"profile__leftPane__actions__delete"}>
             Delete Account
           </Link>
