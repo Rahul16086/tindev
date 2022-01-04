@@ -11,7 +11,6 @@ const SignUp: React.FC = () => {
   const passwordRef = useRef() as React.RefObject<any>;
   const confirmPasswordRef = useRef() as React.RefObject<any>;
   const navigate = useNavigate();
-
   const [error, setError] = useState("");
 
   const signUpHandler = async (event: { preventDefault: () => void }) => {
@@ -57,16 +56,20 @@ const SignUp: React.FC = () => {
       resultJson = await result.json();
       console.log(resultJson);
       if (resultJson.userId) {
+        localStorage.setItem("userId", resultJson.userId);
         navigate("/signupTwo");
       }
     } catch (err: any) {
       setError(err);
-      console.log(err);
     }
   };
 
+  const errorCleaner = () => {
+    setError("");
+  };
+
   return (
-    <div className={"signup__mainContainer"}>
+    <div className={"signup__mainContainer"} onClick={errorCleaner}>
       <form className={"signup__form"} onSubmit={signUpHandler}>
         {error && (
           <div className={"signup__form__error"}>
