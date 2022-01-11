@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect, useState } from "react";
 import "./Profile.css";
 // @ts-ignore
 import profilePicture from "../../../Ellipse 1.svg";
@@ -7,13 +7,28 @@ import { useDispatch } from "react-redux";
 import { setAuthLogout } from "../../../store/userSlice";
 import Button from "../../Button/Button";
 import { useNavigate } from "react-router-dom";
+import RightPaneCardMain from "../MatchMaker/RightPaneCards/RightPaneCardMain";
+import { user } from "../MatchMaker/RightPaneCards/RightPaneCardMain";
 
 const Profile: React.FC = () => {
   const dispatch = useDispatch();
   const navigate = useNavigate();
+  const [userData, setUserData] = useState({});
+
+  const fetchUserData = async () => {
+    const userId = localStorage.getItem("userId");
+    const user = await fetch("http://localhost:8080/profile/" + userId);
+    const userData = await user.json();
+    setUserData(userData.user as user);
+  };
+
+  useEffect(() => {
+    fetchUserData();
+  }, []);
 
   const logoutHandler = () => {
     dispatch(setAuthLogout());
+    localStorage.removeItem("token");
     navigate("/");
   };
 
@@ -44,7 +59,8 @@ const Profile: React.FC = () => {
             <div className={"profile__leftPane__settings__account__option"}>
               <p>E-Mail</p>
               <p className={"profile__leftPane__settings__account__content"}>
-                User-Email@here.com
+                {/*// @ts-ignore*/}
+                {userData?.email}
               </p>
             </div>
           </div>
@@ -62,12 +78,12 @@ const Profile: React.FC = () => {
         </div>
         <div className={"profile__leftPane__actions"}>
           <Button title={"Logout"} onClick={logoutHandler} />
-          <Link to={"/"} className={"profile__leftPane__actions__delete"}>
-            Delete Account
-          </Link>
+          <Button title={"Delete"} danger={true} />
         </div>
       </div>
-      <div className={"matchmaker__rightPane"}>Right</div>
+      <div className={"matchmaker__rightPane"}>
+        <RightPaneCardMain actions={false} userData={userData} />
+      </div>
     </div>
   );
 };

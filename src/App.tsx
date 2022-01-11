@@ -7,10 +7,17 @@ import Login from "./components/Auth/Login";
 import MatchMaker from "./components/MainApp/MatchMaker/MatchMaker";
 import Profile from "./components/MainApp/Profile/Profile";
 import SignUpTwo from "./components/Auth/SignUpTwo";
-import { isAuth } from "./store/userSlice";
+import { isAuth, setAuth } from "./store/userSlice";
 import { useSelector } from "react-redux";
+import { useDispatch } from "react-redux";
 
 const App: React.FC = () => {
+  const dispatch = useDispatch();
+
+  const token: string | null = localStorage.getItem("token");
+  if (token) {
+    dispatch(setAuth({ token: token }));
+  }
   const authenticated: boolean = useSelector(isAuth);
 
   return (

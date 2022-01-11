@@ -11,8 +11,22 @@ import favorite from "../../../../Reactions/Favorite.svg";
 // @ts-ignore
 import match from "../../../../Reactions/Match.svg";
 
-const RightPaneCardMain: React.FC = () => {
-  const skills = ["Java", "JavaScript", "React", "Html/Css", "Next", "NodeJS"];
+export type user = {
+  name?: string;
+  age?: number;
+  designation?: string;
+  experience?: string;
+  skills?: any;
+  email?: string;
+  phoneNumber?: number;
+  matchRadius?: number;
+  links?: object;
+  lookingFor?: string;
+  experienceLevel?: string;
+};
+const RightPaneCardMain: React.FC<{ actions: boolean; userData?: user }> = (
+  props
+) => {
   return (
     <div className={"rightPane__mainCard"}>
       <div className={"rightPane__mainCard__profilePicture"}>
@@ -21,30 +35,36 @@ const RightPaneCardMain: React.FC = () => {
       <div className={"rightPane__mainCard__details"}>
         <div className={"rightPane__mainCard__nameAge"}>
           <p className={"rightPane__mainCard__nameAge__name"}>
-            Lucifer madmaxfuryon
+            {props.userData?.name}
           </p>
-          <p className={"rightPane__mainCard__nameAge__age"}>30</p>
+          <p className={"rightPane__mainCard__nameAge__age"}>
+            {props.userData?.age}
+          </p>
         </div>
         <div className={"rightPane__mainCard__designation"}>
-          <p>Senior Software Developer</p>
-          <p>Experience: 6 years</p>
+          <p>{props.userData?.designation}</p>
+          <p>{props.userData?.experience}</p>
         </div>
         <div className={"rightPane__mainCard__skills"}>
           <p>Primary Skills</p>
           <ul>
-            {skills.map((skill) => (
-              <li>
-                <p>{skill}</p>
-              </li>
-            ))}
+            {props.userData?.skills?.map((skill: any[]) =>
+              skill.map((skillInd, index) => (
+                <li key={index === 0 ? index + 13 : index * 3456}>
+                  <p>{skillInd}</p>
+                </li>
+              ))
+            )}
           </ul>
         </div>
-        <div className={"rightPane__mainCard__reactions"}>
-          <img src={reject} alt={"reject"} />
-          <img src={showPrevious} alt={"previous"} />
-          <img src={favorite} alt={"favorite"} />
-          <img src={match} alt={"match"} />
-        </div>
+        {props.actions && (
+          <div className={"rightPane__mainCard__reactions"}>
+            <img src={reject} alt={"reject"} />
+            <img src={showPrevious} alt={"previous"} />
+            <img src={favorite} alt={"favorite"} />
+            <img src={match} alt={"match"} />
+          </div>
+        )}
       </div>
     </div>
   );

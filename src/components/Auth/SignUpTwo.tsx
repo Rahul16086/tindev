@@ -4,6 +4,8 @@ import { useNavigate } from "react-router-dom";
 
 const SignUpTwo: React.FC = () => {
   const locationRef = useRef() as React.RefObject<any>;
+  const designationRef = useRef() as React.RefObject<any>;
+  const experienceRef = useRef() as React.RefObject<any>;
   const lookingForRef = useRef() as React.RefObject<any>;
   const remoteAvailabilityRef = useRef() as React.RefObject<any>;
   const experienceLevelRef = useRef() as React.RefObject<any>;
@@ -12,6 +14,8 @@ const SignUpTwo: React.FC = () => {
   const portfolioRef = useRef() as React.RefObject<any>;
   const linkedInRef = useRef() as React.RefObject<any>;
   const summaryRef = useRef() as React.RefObject<any>;
+  const skillsRef = useRef() as React.RefObject<any>;
+
   const navigate = useNavigate();
   const [error, setError] = useState("");
 
@@ -19,6 +23,8 @@ const SignUpTwo: React.FC = () => {
     event.preventDefault();
     try {
       const location = locationRef.current.value;
+      const designation = designationRef.current.value;
+      const experience = experienceRef.current.value;
       const lookingFor = lookingForRef.current.value;
       const remoteAvailability = remoteAvailabilityRef.current.value;
       const experienceLevel = experienceLevelRef.current.value;
@@ -27,6 +33,7 @@ const SignUpTwo: React.FC = () => {
       const portfolio = portfolioRef.current.value;
       const linkedIn = linkedInRef.current.value;
       const summary = summaryRef.current.value;
+      const skills = skillsRef.current.value;
       const userId = localStorage.getItem("userId");
 
       const dbUserUpdate = await fetch("http://localhost:8080/auth/signupTwo", {
@@ -36,6 +43,8 @@ const SignUpTwo: React.FC = () => {
         },
         body: JSON.stringify({
           location: location,
+          designation: designation,
+          experience: experience,
           remoteAvailability: remoteAvailability,
           lookingFor: lookingFor,
           experienceLevel: experienceLevel,
@@ -44,6 +53,7 @@ const SignUpTwo: React.FC = () => {
           portfolio: portfolio,
           linkedIn: linkedIn,
           summary: summary,
+          skills: skills,
           userId: userId,
         }),
       });
@@ -57,11 +67,12 @@ const SignUpTwo: React.FC = () => {
         throw new Error("Creating a user failed!");
       }
       const resultJson = await result.json();
-
-      if (resultJson.userId.message) {
+      console.log(resultJson);
+      if (resultJson.message) {
         navigate("/app/matchmaker");
       }
     } catch (e: any) {
+      console.log(e);
       setError(e && "Error occurred, Please check the values entered");
     }
   };
@@ -78,12 +89,56 @@ const SignUpTwo: React.FC = () => {
             <p>{error.toString()}</p>
           </div>
         )}
+        <div className={"signup__form__title"}>
+          <p>Your Info</p>
+        </div>
         <div className={"signup__form__location"}>
           <label>Location</label>
           <input type={"text"} placeholder={"Enter City"} ref={locationRef} />
         </div>
+        <div className={"signup__form__location"}>
+          <label>Designation</label>
+          <input
+            type={"text"}
+            placeholder={"Like software developer..."}
+            ref={designationRef}
+          />
+        </div>
+        <div className={"signup__form__location"}>
+          <label>Experience</label>
+          <input type={"text"} placeholder={"Years"} ref={experienceRef} />
+        </div>
+        <div className={"signup__form__github"}>
+          <label>GitHub</label>
+          <input type={"url"} ref={githubRef} />
+        </div>
+        <div className={"signup__form__portfolio"}>
+          <label>Portfolio</label>
+          <input type={"url"} ref={portfolioRef} />
+        </div>
+        <div className={"signup__form__linkedin"}>
+          <label>LinkedIn</label>
+          <input type={"url"} ref={linkedInRef} />
+        </div>
+        <div className={"signup__form__summary"}>
+          <label>Skills</label>
+          <textarea
+            placeholder={"Enter 6 skills separated by ' , '"}
+            ref={skillsRef}
+          />
+        </div>
+        <div className={"signup__form__summary"}>
+          <label>Summary</label>
+          <textarea
+            placeholder={"A short summary, about 30 words"}
+            ref={summaryRef}
+          />
+        </div>
+        <div className={"signup__form__title"}>
+          <p>Looking For</p>
+        </div>
         <div className={"signup__form__lookingFor"}>
-          <label>Looking For</label>
+          <label>Designation</label>
           <select ref={lookingForRef}>
             <option value={"front-end"}>Front-End Dev</option>
             <option value={"back-end"}>Back-End Dev</option>
@@ -111,25 +166,7 @@ const SignUpTwo: React.FC = () => {
           <label>Match Radius (miles)</label>
           <input type={"number"} ref={matchRadiusRef} />
         </div>
-        <div className={"signup__form__github"}>
-          <label>GitHub</label>
-          <input type={"url"} ref={githubRef} />
-        </div>
-        <div className={"signup__form__portfolio"}>
-          <label>Portfolio</label>
-          <input type={"url"} ref={portfolioRef} />
-        </div>
-        <div className={"signup__form__linkedin"}>
-          <label>LinkedIn</label>
-          <input type={"url"} ref={linkedInRef} />
-        </div>
-        <div className={"signup__form__summary"}>
-          <label>Summary</label>
-          <textarea
-            placeholder={"A short summary, about 30 words"}
-            ref={summaryRef}
-          />
-        </div>
+
         <div className={"signup__form__submit"}>
           <Button title={"Save"} type={"submit"} />
         </div>

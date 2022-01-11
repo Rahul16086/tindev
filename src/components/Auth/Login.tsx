@@ -18,8 +18,6 @@ const Login = () => {
     const email: string | undefined = emailRef.current?.value;
     const password: string | undefined = passwordRef.current?.value;
 
-    console.log(email, password);
-
     try {
       const dbLogin = await fetch("http://localhost:8080/auth/login", {
         method: "POST",
@@ -45,9 +43,8 @@ const Login = () => {
 
       resultJson = await result.json();
 
-      console.log(resultJson);
-
-      if (resultJson.userId) {
+      if (resultJson.token) {
+        localStorage.setItem("token", resultJson.token);
         dispatch(setAuth({ token: resultJson.token }));
         navigate("/app/matchmaker");
       }
@@ -59,8 +56,12 @@ const Login = () => {
     }
   };
 
+  const errorCleaner = () => {
+    setError("");
+  };
+
   return (
-    <div className={"signup__mainContainer"}>
+    <div className={"signup__mainContainer"} onClick={errorCleaner}>
       <form className={"login__form"} onSubmit={loginHandler}>
         {error && (
           <div className={"login__form__error"}>

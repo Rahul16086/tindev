@@ -1,7 +1,7 @@
 .button__common{
     background-image: linear-gradient(to right, #124143 0%, #5ac994 51%, #124143 100%);
-    width: 14vw;
-    min-width: 100px;
+   width: 10vw;
+    min-width: 80px;
     max-width: 150px;
     height: 6vh;
     text-align: center;

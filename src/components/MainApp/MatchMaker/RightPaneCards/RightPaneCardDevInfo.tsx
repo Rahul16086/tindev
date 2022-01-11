@@ -26,8 +26,8 @@ const RightPaneCardDevInfo: React.FC = () => {
   return (
     <div className={"rightPane__mainCard"}>
       <div className={"rightPane__devInfo"}>
-        {infos.map((info) => (
-          <div>
+        {infos.map((info, index) => (
+          <div key={index === 0 ? index + 13 : index * 3456}>
             <p className={"rightPane__devInfo__title"}>{info.title}</p>
             <p className={"rightPane__devInfo__content"}>{info.content}</p>
           </div>

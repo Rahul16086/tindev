@@ -57,9 +57,11 @@ const SignUp: React.FC = () => {
       console.log(resultJson);
       if (resultJson.userId) {
         localStorage.setItem("userId", resultJson.userId);
+        localStorage.setItem("token", resultJson.token);
         navigate("/signupTwo");
       }
     } catch (err: any) {
+      console.log(err);
       setError(err);
     }
   };
