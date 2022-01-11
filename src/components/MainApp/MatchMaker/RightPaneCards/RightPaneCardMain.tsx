@@ -12,6 +12,7 @@ import favorite from "../../../../Reactions/Favorite.svg";
 import match from "../../../../Reactions/Match.svg";
 
 export type user = {
+  _id?: string;
   name?: string;
   age?: number;
   designation?: string;
@@ -24,9 +25,35 @@ export type user = {
   lookingFor?: string;
   experienceLevel?: string;
 };
+
 const RightPaneCardMain: React.FC<{ actions: boolean; userData?: user }> = (
   props
 ) => {
+  const addMatch = async (matchUser: string | undefined) => {
+    try {
+      const userId = localStorage.getItem("userId");
+      const matchUserId = matchUser;
+      console.log(userId, matchUserId);
+      const addMatchToUser = await fetch(
+        "http://localhost:8080/app/matchmaker/add-match",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            userId: userId,
+            matchUserId: matchUserId,
+          }),
+        }
+      );
+      const addMatchToUserJson = await addMatchToUser.json();
+      console.log(addMatchToUserJson);
+    } catch (err) {
+      console.log(err);
+    }
+  };
+
   return (
     <div className={"rightPane__mainCard"}>
       <div className={"rightPane__mainCard__profilePicture"}>
@@ -43,7 +70,7 @@ const RightPaneCardMain: React.FC<{ actions: boolean; userData?: user }> = (
         </div>
         <div className={"rightPane__mainCard__designation"}>
           <p>{props.userData?.designation}</p>
-          <p>{props.userData?.experience}</p>
+          <p>Experience - {props.userData?.experience} years</p>
         </div>
         <div className={"rightPane__mainCard__skills"}>
           <p>Primary Skills</p>
@@ -62,7 +89,11 @@ const RightPaneCardMain: React.FC<{ actions: boolean; userData?: user }> = (
             <img src={reject} alt={"reject"} />
             <img src={showPrevious} alt={"previous"} />
             <img src={favorite} alt={"favorite"} />
-            <img src={match} alt={"match"} />
+            <img
+              src={match}
+              alt={"match"}
+              onClick={() => addMatch(props.userData?._id)}
+            />
           </div>
         )}
       </div>

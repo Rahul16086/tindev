@@ -45,6 +45,7 @@ const Login = () => {
 
       if (resultJson.token) {
         localStorage.setItem("token", resultJson.token);
+        localStorage.setItem("userId", resultJson.userId);
         dispatch(setAuth({ token: resultJson.token }));
         navigate("/app/matchmaker");
       }

@@ -66,8 +66,10 @@ const SignUpTwo: React.FC = () => {
       if (result.status !== 200 && result.status !== 201) {
         throw new Error("Creating a user failed!");
       }
+
       const resultJson = await result.json();
       console.log(resultJson);
+
       if (resultJson.message) {
         navigate("/app/matchmaker");
       }

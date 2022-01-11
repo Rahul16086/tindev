@@ -9,6 +9,7 @@
     width: 60%;
     display: flex;
     align-items: center;
+    font-size: max(1.2vw,12px);
 }
 
 .profile__leftPane__nav__partOne p{

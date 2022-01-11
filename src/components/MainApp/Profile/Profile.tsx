@@ -61,6 +61,7 @@ const Profile: React.FC = () => {
   const logoutHandler = () => {
     dispatch(setAuthLogout());
     localStorage.removeItem("token");
+    localStorage.removeItem("userId");
     navigate("/");
   };
 
