@@ -7,29 +7,24 @@ const Button: React.FC<{
   onClick?: () => void;
   danger?: boolean;
 }> = (props: any) => {
+  let dangerStyle = "";
+  if (props.danger) {
+    dangerStyle =
+      "linear-gradient(to right, #431212 0%, #c95a5a 51%, #431212 100%)";
+  }
+
   return (
     <>
-      {props.danger ? (
-        <button
-          className={"button__common"}
-          type={props.type}
-          onClick={props.onClick}
-          style={{
-            backgroundImage:
-              "linear-gradient(to right, #431212 0%, #c95a5a 51%, #431212 100%);",
-          }}
-        >
-          {props.title}
-        </button>
-      ) : (
-        <button
-          className={"button__common"}
-          type={props.type}
-          onClick={props.onClick}
-        >
-          {props.title}
-        </button>
-      )}
+      <button
+        className={"button__common"}
+        type={props.type}
+        onClick={props.onClick}
+        style={{
+          backgroundImage: dangerStyle,
+        }}
+      >
+        {props.title}
+      </button>
     </>
   );
 };

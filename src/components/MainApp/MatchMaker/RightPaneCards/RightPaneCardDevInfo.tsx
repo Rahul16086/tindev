@@ -1,7 +1,7 @@
 import React from "react";
 import "./RightPaneCardDevInfo.css";
 
-const RightPaneCardDevInfo: React.FC = () => {
+const RightPaneCardDevInfo: React.FC<{ data: any }> = (props) => {
   const infos = [
     { title: "Github", content: "https://github.com/luci001" },
     {
@@ -26,10 +26,12 @@ const RightPaneCardDevInfo: React.FC = () => {
   return (
     <div className={"rightPane__mainCard"}>
       <div className={"rightPane__devInfo"}>
-        {infos.map((info, index) => (
+        {props.data.map((info: any, index: number) => (
           <div key={index === 0 ? index + 13 : index * 3456}>
-            <p className={"rightPane__devInfo__title"}>{info.title}</p>
-            <p className={"rightPane__devInfo__content"}>{info.content}</p>
+            <p className={"rightPane__devInfo__title"}>{Object.keys(info)}</p>
+            <p className={"rightPane__devInfo__content"}>
+              {Object.values(info).toString()}
+            </p>
           </div>
         ))}
       </div>

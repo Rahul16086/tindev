@@ -28,7 +28,7 @@ const MatchMaker: React.FC = () => {
       </div>
       <div className={"matchmaker__rightPane"}>
         <RightPaneCardMain actions={true} />
-        <RightPaneCardDevInfo />
+        <RightPaneCardDevInfo data={null} />
       </div>
     </div>
   );
