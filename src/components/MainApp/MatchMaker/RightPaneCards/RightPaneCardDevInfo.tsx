@@ -2,7 +2,6 @@ import React from "react";
 import "./RightPaneCardDevInfo.css";
 
 const RightPaneCardDevInfo: React.FC<{ data: any }> = (props) => {
-  console.log("RightDtaa", props.data);
   return (
     <div className={"rightPane__mainCard"}>
       <div className={"rightPane__devInfo"}>

@@ -48,9 +48,14 @@
 .matchmaker__leftPane__options > p{
     cursor: pointer;
     font-weight: 300;
+    transition: 250ms ease-in-out;
 }
 
 .matchmaker__leftPane__options > p:hover{
+    color: #cecece;
+}
+
+.matchmaker__leftPane__options > p.active{
     border-bottom: 2px solid #5ac994;
 }
 
@@ -60,6 +65,34 @@
     align-items: center;
     justify-content: center;
     font-weight: 200;
+}
+
+.matchmaker__leftPane__content__matches{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    height: 99%;
+}
+
+.matchmaker__leftPane__content__matches__individual{
+    display: flex;
+    width: 90%;
+    height: 10%;
+    justify-content: space-between;
+    align-items: center;
+    padding: 5px;
+    border-radius: 10px;
+}
+
+.matchmaker__leftPane__content__matches__individual img{
+    height: 90%;
+}
+
+.matchmaker__leftPane__content__matches__individual:hover{
+    background-color: rgba(0, 255, 157, 0.2);
+    cursor: pointer;
 }
 
 .matchmaker__rightPane{

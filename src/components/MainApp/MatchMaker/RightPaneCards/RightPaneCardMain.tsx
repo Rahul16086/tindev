@@ -26,11 +26,14 @@ export type user = {
   experienceLevel?: string;
 };
 
-const RightPaneCardMain: React.FC<{ actions: boolean; userData?: user }> = (
-  props
-) => {
+const RightPaneCardMain: React.FC<{
+  actions: boolean;
+  userData?: user;
+  onAdd?: any;
+}> = (props) => {
   const addMatch = async (matchUser: string | undefined) => {
     try {
+      props.onAdd();
       const userId = localStorage.getItem("userId");
       const matchUserId = matchUser;
       console.log(userId, matchUserId);
@@ -48,6 +51,9 @@ const RightPaneCardMain: React.FC<{ actions: boolean; userData?: user }> = (
         }
       );
       const addMatchToUserJson = await addMatchToUser.json();
+      // if (addMatchToUserJson.message){
+
+      // }
       console.log(addMatchToUserJson);
     } catch (err) {
       console.log(err);
