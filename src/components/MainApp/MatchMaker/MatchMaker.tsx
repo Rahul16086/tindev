@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import "./MatchMaker.css";
-// @ts-ignore
-import profilePicture from "../../../Ellipse 1.svg";
+import profilePicture from "../../../images/Ellipse 1.svg";
 import RightPaneCardMain from "./RightPaneCards/RightPaneCardMain";
 import RightPaneCardDevInfo from "./RightPaneCards/RightPaneCardDevInfo";
 import { Link } from "react-router-dom";
@@ -17,36 +16,20 @@ const MatchMaker: React.FC = () => {
   const [messagesActiveState, setMessagesActiveState]: any = useState(false);
 
   const fetchMatches = async () => {
-    setLoading(true);
-    const userId = localStorage.getItem("userId");
-    const matchesRaw = await fetch("http://localhost:8080/app/matchmaker");
-    const matchedData = await matchesRaw.json();
-    const currentUser: any[] = [];
+    try {
+      setLoading(true);
+      const userId = localStorage.getItem("userId");
+      const matchesRaw = await fetch(
+        "http://localhost:8080/app/matchmaker?userId=" + userId
+      );
+      const matchedData = await matchesRaw.json();
 
-    if (matchedData) {
-      const filteredMatchedData = matchedData.matches.filter((data: any) => {
-        if (!(data._id.toString() === userId?.toString())) {
-          return data;
-        } else {
-          currentUser.push(data);
-        }
-      });
-
-      let finalFilter = [];
-      if (currentUser[0].matches?.length > 0) {
-        finalFilter = filteredMatchedData.filter((data: any) => {
-          if (currentUser[0].matches?.indexOf(data._id.toString()) === -1) {
-            return data;
-          }
-        });
-      } else {
-        finalFilter = [...filteredMatchedData];
-      }
-
-      if (finalFilter?.length > 0) {
-        const randomIndex = Math.floor(Math.random() * finalFilter.length);
-        setCurrentCardData(finalFilter[randomIndex]);
-        const { links, summary } = finalFilter[randomIndex];
+      if (matchedData.cardData?.length > 0) {
+        const randomIndex = Math.floor(
+          Math.random() * matchedData.cardData.length
+        );
+        setCurrentCardData(matchedData.cardData[randomIndex]);
+        const { links, summary } = matchedData.cardData[randomIndex];
         const rightCardDevInfoArray = [];
         rightCardDevInfoArray.push(
           { Github: links?.github },
@@ -55,21 +38,15 @@ const MatchMaker: React.FC = () => {
           { Summary: summary }
         );
         setCurrentRightCardData(rightCardDevInfoArray);
-        setLoading(false);
+      } else {
+        setCurrentCardData(null);
+        setCurrentRightCardData(null);
       }
 
-      if (currentUser[0]?.matches.length > 0) {
-        const matchesArray: { name: any; _id: any }[] = [];
-        currentUser[0].matches.map((matchId: any) => {
-          matchedData.matches.map((match: any) => {
-            if (matchId.toString() === match._id.toString()) {
-              matchesArray.push({ name: match.name, _id: match._id });
-            }
-          });
-        });
-        setMatches(matchesArray);
-        setLoading(false);
-      }
+      setMatches(matchedData.leftPane);
+      setLoading(false);
+    } catch (e) {
+      console.log(e);
     }
   };
 

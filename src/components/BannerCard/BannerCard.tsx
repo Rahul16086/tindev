@@ -1,11 +1,11 @@
 import React from "react";
 import "./BannerCard.css";
 // @ts-ignore
-import profilePicture from "../../Ellipse 1.svg";
+import profilePicture from "../../images/Ellipse 1.svg";
 // @ts-ignore
-import verified from "../../Vector.svg";
+import verified from "../../images/Vector.svg";
 // @ts-ignore
-import reactions from "../../Reactions.png";
+import reactions from "../../images/Reactions.png";
 
 const BannerCard = () => {
   return (

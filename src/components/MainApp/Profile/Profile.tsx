@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import "./Profile.css";
 // @ts-ignore
-import profilePicture from "../../../Ellipse 1.svg";
+import profilePicture from "../../../images/Ellipse 1.svg";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setAuthLogout } from "../../../store/userSlice";

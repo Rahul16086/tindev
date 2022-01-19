@@ -1,15 +1,10 @@
 import React from "react";
 import "./RightPaneCardMain.css";
-// @ts-ignore
-import profilePicture from "../../../../Ellipse 1.svg";
-// @ts-ignore
-import reject from "../../../../Reactions/Reject.svg";
-// @ts-ignore
-import showPrevious from "../../../../Reactions/Show Previous.svg";
-// @ts-ignore
-import favorite from "../../../../Reactions/Favorite.svg";
-// @ts-ignore
-import match from "../../../../Reactions/Match.svg";
+import profilePicture from "../../../../images/Ellipse 1.svg";
+import reject from "../../../../images/Reactions/Reject.svg";
+import showPrevious from "../../../../images/Reactions/Show Previous.svg";
+import favorite from "../../../../images/Reactions/Favorite.svg";
+import match from "../../../../images/Reactions/Match.svg";
 
 export type user = {
   _id?: string;
@@ -33,10 +28,7 @@ const RightPaneCardMain: React.FC<{
 }> = (props) => {
   const addMatch = async (matchUser: string | undefined) => {
     try {
-      props.onAdd();
       const userId = localStorage.getItem("userId");
-      const matchUserId = matchUser;
-      console.log(userId, matchUserId);
       const addMatchToUser = await fetch(
         "http://localhost:8080/app/matchmaker/add-match",
         {
@@ -46,15 +38,14 @@ const RightPaneCardMain: React.FC<{
           },
           body: JSON.stringify({
             userId: userId,
-            matchUserId: matchUserId,
+            matchUserId: matchUser,
           }),
         }
       );
       const addMatchToUserJson = await addMatchToUser.json();
-      // if (addMatchToUserJson.message){
-
-      // }
-      console.log(addMatchToUserJson);
+      if (addMatchToUserJson) {
+        props.onAdd();
+      }
     } catch (err) {
       console.log(err);
     }
