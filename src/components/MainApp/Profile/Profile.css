@@ -65,14 +65,17 @@
 
 .profile__leftPane__settings__account button{
     color: #141B29;
+    font-size: max(1.2vw,12px);
+    font-weight: 400;
     background-color: #5ac994;
     border: none;
     border-radius: 50px;
-    width: 25%;
+    width: 40%;
     min-width: 48px;
     max-width: 60px;
     cursor: pointer;
     transition: .5s;
+    margin-right: 2px;
 }
 
 .profile__leftPane__settings__account button:hover{
@@ -80,7 +83,7 @@
 }
 
 .profile__leftPane__settings__account__option{
-    border: 1px solid #5ac994;
+    /*border: 1px solid #5ac994;*/
     margin-top: 2px;
     display: flex;
     align-items: center;
@@ -93,9 +96,41 @@
     max-height: 20%;
 }
 
+.profile__leftPane__settings__account__option label{
+    border: none;
+    font-size: max(1.2vw,12px);
+    font-weight: 400;
+}
+
+.profile__leftPane__settings__account__option input{
+    font-size: max(1.2vw,12px);
+    font-weight: 200;
+    padding: 0 2px 0 5px;
+    border-radius: 30px;
+    border: 2px solid #5ac994;
+    color: #ffffff;
+    background-color: transparent;
+    width: 60%;
+}
+
 .profile__leftPane__settings__account__content{
     font-weight: 200;
     overflow-wrap: anywhere;
+}
+
+.profile__leftPane__settings__account__option select{
+    border-radius: 30px;
+    border: 2px solid #5ac994;
+    color: #ffffff;
+    background-color: transparent;
+    /*width: 30%;*/
+    text-align: center;
+    font-size: max(1.2vw,12px);
+    font-weight: 200;
+}
+
+.profile__leftPane__settings__account__option select > option{
+    color: #141B29;
 }
 
 .profile__leftPane__settings__discovery__container{

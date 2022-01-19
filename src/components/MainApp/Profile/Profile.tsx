@@ -1,6 +1,5 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import "./Profile.css";
-// @ts-ignore
 import profilePicture from "../../../images/Ellipse 1.svg";
 import { Link } from "react-router-dom";
 import { useDispatch } from "react-redux";
@@ -10,6 +9,7 @@ import { useNavigate } from "react-router-dom";
 import RightPaneCardMain from "../MatchMaker/RightPaneCards/RightPaneCardMain";
 import { user } from "../MatchMaker/RightPaneCards/RightPaneCardMain";
 import RightPaneCardDevInfo from "../MatchMaker/RightPaneCards/RightPaneCardDevInfo";
+import ProfileEditInfo from "./ProfileEditInfo";
 
 const Profile: React.FC = () => {
   const dispatch = useDispatch();
@@ -18,6 +18,16 @@ const Profile: React.FC = () => {
   const [availabilityData, setAvailabilityData]: any = useState([]);
   const [discoveryData, setDiscoveryData]: any = useState([]);
   const [rightCardDevInfo, setRightCardDevInfo]: any = useState([]);
+  const [editToggle, setEditToggle] = useState(false);
+  const [updated, setUpdated] = useState(false);
+  const [editInfoToggle, setEditInfoToggle] = useState(false);
+  const lookingForRef = useRef() as React.RefObject<any>;
+  const remoteAvailabilityRef = useRef() as React.RefObject<any>;
+  const experienceLevelRef = useRef() as React.RefObject<any>;
+  const emailRef = useRef() as React.RefObject<any>;
+  const phoneRef = useRef() as React.RefObject<any>;
+  const locationRef = useRef() as React.RefObject<any>;
+  const matchRadiusRef = useRef() as React.RefObject<any>;
 
   const fetchUserData = async () => {
     const userId = localStorage.getItem("userId");
@@ -56,13 +66,59 @@ const Profile: React.FC = () => {
 
   useEffect(() => {
     fetchUserData();
-  }, []);
+  }, [updated]);
 
   const logoutHandler = () => {
     dispatch(setAuthLogout());
     localStorage.removeItem("token");
     localStorage.removeItem("userId");
     navigate("/");
+  };
+
+  const editToggler = () => {
+    setEditToggle(() => !editToggle);
+  };
+
+  const updateSettings = async () => {
+    const newEmail = emailRef.current.value;
+    const newPhone = phoneRef.current.value;
+    const newLocation = locationRef.current.value;
+    const newRemoteAvailability = remoteAvailabilityRef.current.value;
+    const newLookingFor = lookingForRef.current.value;
+    const newExperienceLevel = experienceLevelRef.current.value;
+    const newMatchRadius = matchRadiusRef.current.value;
+
+    const userId = localStorage.getItem("userId");
+    const updateData = await fetch(
+      "http://localhost:8080/profile/" + userId + "/settingsUpdate",
+      {
+        method: "PUT",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify({
+          location: newLocation,
+          remoteAvailability: newRemoteAvailability,
+          lookingFor: newLookingFor,
+          experienceLevel: newExperienceLevel,
+          matchRadius: newMatchRadius,
+          phoneNumber: newPhone,
+          email: newEmail,
+        }),
+      }
+    );
+    const updateDataResult = await updateData.json();
+    if (updateDataResult.message) {
+      setEditToggle(() => !editToggle);
+      setUpdated(() => !updated);
+    }
+  };
+
+  const editInfoToggler = (value: boolean) => {
+    setEditInfoToggle(() => !editInfoToggle);
+    if (value) {
+      setUpdated(() => !updated);
+    }
   };
 
   return (
@@ -87,35 +143,113 @@ const Profile: React.FC = () => {
           <div className={"profile__leftPane__settings__account__container"}>
             <div className={"profile__leftPane__settings__account"}>
               <p>Account Settings</p>
-              <button>Edit</button>
+              <button onClick={editToggler}>
+                {editToggle ? "Cancel" : "Edit"}
+              </button>
+              {editToggle && <button onClick={updateSettings}>Update</button>}
             </div>
-            {availabilityData?.map((data: object, index: number) => (
-              <div
-                className={"profile__leftPane__settings__account__option"}
-                key={index === 0 ? index + 13 : index * 3456}
-              >
-                <p>{Object.keys(data)}</p>
-                <p className={"profile__leftPane__settings__account__content"}>
-                  {Object.values(data)}
-                </p>
-              </div>
-            ))}
+            {!editToggle &&
+              availabilityData?.map((data: object, index: number) => (
+                <div
+                  className={"profile__leftPane__settings__account__option"}
+                  key={index === 0 ? index + 13 : index * 3456}
+                >
+                  <p>{Object.keys(data)}</p>
+                  <p
+                    className={"profile__leftPane__settings__account__content"}
+                  >
+                    {Object.values(data)}
+                  </p>
+                </div>
+              ))}
+            {editToggle && (
+              <>
+                <div className={"profile__leftPane__settings__account__option"}>
+                  <label>E-mail</label>
+                  <input
+                    type={"email"}
+                    defaultValue={userData.email}
+                    className={"profile__leftPane__settings__account__content"}
+                    ref={emailRef}
+                  />
+                </div>
+                <div className={"profile__leftPane__settings__account__option"}>
+                  <label>Phone</label>
+                  <input
+                    type={"text"}
+                    defaultValue={userData.phoneNumber}
+                    className={"profile__leftPane__settings__account__content"}
+                    ref={phoneRef}
+                  />
+                </div>
+                <div className={"profile__leftPane__settings__account__option"}>
+                  <label>Location</label>
+                  <input
+                    type={"text"}
+                    defaultValue={userData.location}
+                    className={"profile__leftPane__settings__account__content"}
+                    ref={locationRef}
+                  />
+                </div>
+                <div className={"profile__leftPane__settings__account__option"}>
+                  <label>Remote Availability</label>
+                  <select ref={remoteAvailabilityRef}>
+                    <option value={"yes"}>Yes</option>
+                    <option value={"no"}>No</option>
+                  </select>
+                </div>
+              </>
+            )}
           </div>
           <div className={"profile__leftPane__settings__discovery__container"}>
             <div className={"profile__leftPane__settings__discovery"}>
               <p>Discovery Settings</p>
             </div>
-            {discoveryData?.map((data: object, index: number) => (
-              <div
-                className={"profile__leftPane__settings__account__option"}
-                key={index === 0 ? index + 13 : index * 3456}
-              >
-                <p>{Object.keys(data)}</p>
-                <p className={"profile__leftPane__settings__account__content"}>
-                  {Object.values(data)}
-                </p>
-              </div>
-            ))}
+            {!editToggle &&
+              discoveryData?.map((data: object, index: number) => (
+                <div
+                  className={"profile__leftPane__settings__account__option"}
+                  key={index === 0 ? index + 13 : index * 3456}
+                >
+                  <p>{Object.keys(data)}</p>
+                  <p
+                    className={"profile__leftPane__settings__account__content"}
+                  >
+                    {Object.values(data)}
+                  </p>
+                </div>
+              ))}
+            {editToggle && (
+              <>
+                <div className={"profile__leftPane__settings__account__option"}>
+                  <label>Looking for</label>
+                  <select ref={lookingForRef}>
+                    <option>Front-End Dev</option>
+                    <option>Back-End Dev</option>
+                    <option>Full-Stack Dev</option>
+                    <option>Does Programming</option>
+                  </select>
+                </div>
+                <div className={"profile__leftPane__settings__account__option"}>
+                  <label>Experience Level</label>
+                  <select ref={experienceLevelRef}>
+                    <option>Graduates</option>
+                    <option>Low (1-2y)</option>
+                    <option>Medium (2-5y)</option>
+                    <option>High (5y +)</option>
+                  </select>
+                </div>
+                <div className={"profile__leftPane__settings__account__option"}>
+                  <label>Radius</label>
+                  <input
+                    type={"number"}
+                    defaultValue={userData.matchRadius}
+                    className={"profile__leftPane__settings__account__content"}
+                    ref={matchRadiusRef}
+                  />
+                </div>
+              </>
+            )}
           </div>
         </div>
         <div className={"profile__leftPane__actions"}>
@@ -124,12 +258,27 @@ const Profile: React.FC = () => {
         </div>
       </div>
       <div className={"profile__rightPane"}>
-        <div className={"profile__rightPane__cards"}>
-          <RightPaneCardMain actions={false} userData={userData} />
-          <RightPaneCardDevInfo data={rightCardDevInfo} />
-        </div>
+        {!editInfoToggle && (
+          <div className={"profile__rightPane__cards"}>
+            <RightPaneCardMain actions={false} userData={userData} />
+            <RightPaneCardDevInfo data={rightCardDevInfo} />
+          </div>
+        )}
+        {editInfoToggle && (
+          <div className={"profile__rightPane__cards"}>
+            <ProfileEditInfo
+              userData={userData}
+              toggle={() => editInfoToggler(true)}
+            />
+          </div>
+        )}
         <div className={"profile__rightPane__button"}>
-          <Button title={"Edit Info"} />
+          <Button
+            title={editInfoToggle ? "Cancel" : "Edit Info"}
+            onClick={() => {
+              editInfoToggler(false);
+            }}
+          />
         </div>
       </div>
     </div>

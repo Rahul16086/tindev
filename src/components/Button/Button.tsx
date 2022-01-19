@@ -4,7 +4,7 @@ import "./Button.css";
 const Button: React.FC<{
   title: string;
   type?: string;
-  onClick?: () => void;
+  onClick?: any;
   danger?: boolean;
 }> = (props: any) => {
   let dangerStyle = "";
