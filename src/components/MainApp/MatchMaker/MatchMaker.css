@@ -74,6 +74,7 @@
     align-items: center;
     justify-content: flex-start;
     height: 99%;
+    overflow-y: scroll;
 }
 
 .matchmaker__leftPane__content__matches__individual{

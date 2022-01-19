@@ -11,6 +11,7 @@ const ProfileEditInfo: React.FC<{ userData: any; toggle?: any }> = (props) => {
   const experienceRef = useRef() as React.RefObject<any>;
   const nameRef = useRef() as React.RefObject<any>;
   const ageRef = useRef() as React.RefObject<any>;
+  const token = localStorage.getItem("token");
 
   const updateInfo = async () => {
     const newName = nameRef.current.value;
@@ -30,6 +31,7 @@ const ProfileEditInfo: React.FC<{ userData: any; toggle?: any }> = (props) => {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
         },
         body: JSON.stringify({
           name: newName,

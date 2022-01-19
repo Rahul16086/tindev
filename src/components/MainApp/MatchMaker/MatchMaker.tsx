@@ -14,13 +14,19 @@ const MatchMaker: React.FC = () => {
   const [loading, setLoading]: any = useState(false);
   const [matchesActiveState, setMatchesActiveState]: any = useState(true);
   const [messagesActiveState, setMessagesActiveState]: any = useState(false);
+  const token = localStorage.getItem("token");
 
   const fetchMatches = async () => {
     try {
       setLoading(true);
       const userId = localStorage.getItem("userId");
       const matchesRaw = await fetch(
-        "http://localhost:8080/app/matchmaker?userId=" + userId
+        "http://localhost:8080/app/matchmaker?userId=" + userId,
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
       );
       const matchedData = await matchesRaw.json();
 

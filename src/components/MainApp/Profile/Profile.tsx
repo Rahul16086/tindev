@@ -28,15 +28,19 @@ const Profile: React.FC = () => {
   const phoneRef = useRef() as React.RefObject<any>;
   const locationRef = useRef() as React.RefObject<any>;
   const matchRadiusRef = useRef() as React.RefObject<any>;
+  const token = localStorage.getItem("token");
 
   const fetchUserData = async () => {
     const userId = localStorage.getItem("userId");
-    const user = await fetch("http://localhost:8080/profile/" + userId);
+    const user = await fetch("http://localhost:8080/profile/" + userId, {
+      headers: {
+        Authorization: "Bearer " + token,
+      },
+    });
     const userData = await user.json();
     const { email, phoneNumber, location, remoteAvailability } = userData.user;
     const { lookingFor, experienceLevel, matchRadius } = userData.user;
     const { links, summary } = userData.user;
-
     const availableDataArray = [];
     availableDataArray.push(
       { "E-mail": email },
@@ -95,6 +99,7 @@ const Profile: React.FC = () => {
         method: "PUT",
         headers: {
           "Content-Type": "application/json",
+          Authorization: "Bearer " + token,
         },
         body: JSON.stringify({
           location: newLocation,

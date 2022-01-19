@@ -26,6 +26,8 @@ const RightPaneCardMain: React.FC<{
   userData?: user;
   onAdd?: any;
 }> = (props) => {
+  const token = localStorage.getItem("token");
+
   const addMatch = async (matchUser: string | undefined) => {
     try {
       const userId = localStorage.getItem("userId");
@@ -35,6 +37,7 @@ const RightPaneCardMain: React.FC<{
           method: "PUT",
           headers: {
             "Content-Type": "application/json",
+            Authorization: "Bearer " + token,
           },
           body: JSON.stringify({
             userId: userId,
