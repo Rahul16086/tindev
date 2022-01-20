@@ -28,9 +28,19 @@ const RightPaneCardMain: React.FC<{
 }> = (props) => {
   const token = localStorage.getItem("token");
 
-  const addMatch = async (matchUser: string | undefined) => {
+  const addMatch = async (
+    actionUserId: string | undefined,
+    action: string | undefined
+  ) => {
     try {
       const userId = localStorage.getItem("userId");
+      let finalAction = {};
+      if (action === "match") {
+        finalAction = { matchUserId: actionUserId };
+      }
+      if (action === "reject") {
+        finalAction = { rejectUserId: actionUserId };
+      }
       const addMatchToUser = await fetch(
         "http://localhost:8080/app/matchmaker/add-match",
         {
@@ -41,7 +51,7 @@ const RightPaneCardMain: React.FC<{
           },
           body: JSON.stringify({
             userId: userId,
-            matchUserId: matchUser,
+            finalAction,
           }),
         }
       );
@@ -86,13 +96,17 @@ const RightPaneCardMain: React.FC<{
         </div>
         {props.actions && (
           <div className={"rightPane__mainCard__reactions"}>
-            <img src={reject} alt={"reject"} />
+            <img
+              src={reject}
+              alt={"reject"}
+              onClick={() => addMatch(props.userData?._id, "reject")}
+            />
             <img src={showPrevious} alt={"previous"} />
             <img src={favorite} alt={"favorite"} />
             <img
               src={match}
               alt={"match"}
-              onClick={() => addMatch(props.userData?._id)}
+              onClick={() => addMatch(props.userData?._id, "match")}
             />
           </div>
         )}
