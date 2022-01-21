@@ -11,6 +11,7 @@ import { isAuth, setAuth } from "./store/userSlice";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
 import ForgotPassword from "./components/Auth/ForgotPassword";
+import ResetPassword from "./components/Auth/ResetPassword";
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
@@ -66,6 +67,15 @@ const App: React.FC = () => {
             <>
               <Navbar />
               <ForgotPassword />
+            </>
+          }
+        />
+        <Route
+          path={"/resetPassword/:resetToken"}
+          element={
+            <>
+              <Navbar />
+              <ResetPassword />
             </>
           }
         />
