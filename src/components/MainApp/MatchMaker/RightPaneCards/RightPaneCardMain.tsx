@@ -25,6 +25,7 @@ const RightPaneCardMain: React.FC<{
   actions: boolean;
   userData?: user;
   onAdd?: any;
+  message?: string;
 }> = (props) => {
   const token = localStorage.getItem("token");
 
@@ -35,12 +36,20 @@ const RightPaneCardMain: React.FC<{
     try {
       const userId = localStorage.getItem("userId");
       let finalAction = {};
-      if (action === "match") {
-        finalAction = { matchUserId: actionUserId };
+      switch (action) {
+        case "reject":
+          finalAction = { rejectUserId: actionUserId };
+          break;
+        case "match":
+          finalAction = { matchUserId: actionUserId };
+          break;
+        case "favorite":
+          finalAction = { favoriteUserId: actionUserId };
+          break;
+        default:
+          finalAction = {};
       }
-      if (action === "reject") {
-        finalAction = { rejectUserId: actionUserId };
-      }
+
       const addMatchToUser = await fetch(
         "http://localhost:8080/app/matchmaker/add-match",
         {
@@ -55,12 +64,13 @@ const RightPaneCardMain: React.FC<{
           }),
         }
       );
+
       const addMatchToUserJson = await addMatchToUser.json();
-      if (addMatchToUserJson) {
+      if (addMatchToUserJson.action) {
         props.onAdd();
       }
-    } catch (err) {
-      console.log(err);
+    } catch (err: any) {
+      console.log("error");
     }
   };
 
@@ -102,7 +112,11 @@ const RightPaneCardMain: React.FC<{
               onClick={() => addMatch(props.userData?._id, "reject")}
             />
             <img src={showPrevious} alt={"previous"} />
-            <img src={favorite} alt={"favorite"} />
+            <img
+              src={favorite}
+              alt={"favorite"}
+              onClick={() => addMatch(props.userData?._id, "favorite")}
+            />
             <img
               src={match}
               alt={"match"}

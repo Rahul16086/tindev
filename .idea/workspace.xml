@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="29a0fe15-1213-41e5-8b63-67f3da8e732e" name="Changes" comment="Added styles for scroll bar and added authorization in every request">
+    <list default="true" id="29a0fe15-1213-41e5-8b63-67f3da8e732e" name="Changes" comment="Added functionality to the reject button in the profile card">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/MainApp/MatchMaker/RightPaneCards/RightPaneCardMain.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainApp/MatchMaker/RightPaneCards/RightPaneCardMain.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainApp/Profile/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainApp/Profile/Profile.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -55,7 +56,7 @@
       <option name="presentableId" value="Default" />
       <updated>1641936666531</updated>
       <workItem from="1641936668328" duration="97000" />
-      <workItem from="1642258302596" duration="47516000" />
+      <workItem from="1642258302596" duration="54890000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed matchmaker code and cleaned some code, added loader animation and fixed card infos">
       <created>1642424282948</created>
@@ -85,7 +86,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642627803645</updated>
     </task>
-    <option name="localTasksCounter" value="5" />
+    <task id="LOCAL-00005" summary="Added functionality to the reject button in the profile card">
+      <created>1642713758098</created>
+      <option name="number" value="00005" />
+      <option name="presentableId" value="LOCAL-00005" />
+      <option name="project" value="LOCAL" />
+      <updated>1642713758098</updated>
+    </task>
+    <option name="localTasksCounter" value="6" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -107,7 +115,8 @@
     <MESSAGE value="Optimised fetch for matches and moved filters code to backend, fixed svg imports and moved to images" />
     <MESSAGE value="Added edit functionality to profile and fixed some styling" />
     <MESSAGE value="Added styles for scroll bar and added authorization in every request" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added styles for scroll bar and added authorization in every request" />
+    <MESSAGE value="Added functionality to the reject button in the profile card" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added functionality to the reject button in the profile card" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

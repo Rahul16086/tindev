@@ -21,6 +21,9 @@ const Profile: React.FC = () => {
   const [editToggle, setEditToggle] = useState(false);
   const [updated, setUpdated] = useState(false);
   const [editInfoToggle, setEditInfoToggle] = useState(false);
+  const [settingsActiveState, setSettingsActiveState]: any = useState(true);
+  const [favoritesActiveState, setFavoritesActiveState]: any = useState(false);
+  const [favorites, setFavorites]: any = useState(null);
   const lookingForRef = useRef() as React.RefObject<any>;
   const remoteAvailabilityRef = useRef() as React.RefObject<any>;
   const experienceLevelRef = useRef() as React.RefObject<any>;
@@ -38,6 +41,8 @@ const Profile: React.FC = () => {
       },
     });
     const userData = await user.json();
+    console.log(userData.favorites);
+    setFavorites(userData.favorites);
     const { email, phoneNumber, location, remoteAvailability } = userData.user;
     const { lookingFor, experienceLevel, matchRadius } = userData.user;
     const { links, summary } = userData.user;
@@ -126,6 +131,14 @@ const Profile: React.FC = () => {
     }
   };
 
+  const matchesActiveToggle = () => {
+    setSettingsActiveState(() => !settingsActiveState);
+    setFavoritesActiveState(false);
+  };
+  const messagesActiveToggle = () => {
+    setFavoritesActiveState(() => !favoritesActiveState);
+    setSettingsActiveState(false);
+  };
   return (
     <div className={"profile__mainContainer"}>
       <div className={"matchmaker__leftPane"}>
@@ -145,117 +158,182 @@ const Profile: React.FC = () => {
           </div>
         </div>
         <div className={"profile__leftPane__settings"}>
-          <div className={"profile__leftPane__settings__account__container"}>
-            <div className={"profile__leftPane__settings__account"}>
-              <p>Account Settings</p>
-              <button onClick={editToggler}>
-                {editToggle ? "Cancel" : "Edit"}
-              </button>
-              {editToggle && <button onClick={updateSettings}>Update</button>}
-            </div>
-            {!editToggle &&
-              availabilityData?.map((data: object, index: number) => (
+          <div className={"matchmaker__leftPane__options"}>
+            <p
+              className={settingsActiveState ? "active" : ""}
+              onClick={matchesActiveToggle}
+            >
+              Settings
+            </p>
+            <p
+              className={favoritesActiveState ? "active" : ""}
+              onClick={messagesActiveToggle}
+            >
+              Favorites
+            </p>
+          </div>
+          {settingsActiveState && (
+            <>
+              <div
+                className={"profile__leftPane__settings__account__container"}
+              >
+                <div className={"profile__leftPane__settings__account"}>
+                  <p>Account Settings</p>
+                  <button onClick={editToggler}>
+                    {editToggle ? "Cancel" : "Edit"}
+                  </button>
+                  {editToggle && (
+                    <button onClick={updateSettings}>Update</button>
+                  )}
+                </div>
+                {!editToggle &&
+                  availabilityData?.map((data: object, index: number) => (
+                    <div
+                      className={"profile__leftPane__settings__account__option"}
+                      key={index === 0 ? index + 13 : index * 3456}
+                    >
+                      <p>{Object.keys(data)}</p>
+                      <p
+                        className={
+                          "profile__leftPane__settings__account__content"
+                        }
+                      >
+                        {Object.values(data)}
+                      </p>
+                    </div>
+                  ))}
+                {editToggle && (
+                  <>
+                    <div
+                      className={"profile__leftPane__settings__account__option"}
+                    >
+                      <label>E-mail</label>
+                      <input
+                        type={"email"}
+                        defaultValue={userData.email}
+                        className={
+                          "profile__leftPane__settings__account__content"
+                        }
+                        ref={emailRef}
+                      />
+                    </div>
+                    <div
+                      className={"profile__leftPane__settings__account__option"}
+                    >
+                      <label>Phone</label>
+                      <input
+                        type={"text"}
+                        defaultValue={userData.phoneNumber}
+                        className={
+                          "profile__leftPane__settings__account__content"
+                        }
+                        ref={phoneRef}
+                      />
+                    </div>
+                    <div
+                      className={"profile__leftPane__settings__account__option"}
+                    >
+                      <label>Location</label>
+                      <input
+                        type={"text"}
+                        defaultValue={userData.location}
+                        className={
+                          "profile__leftPane__settings__account__content"
+                        }
+                        ref={locationRef}
+                      />
+                    </div>
+                    <div
+                      className={"profile__leftPane__settings__account__option"}
+                    >
+                      <label>Remote Availability</label>
+                      <select ref={remoteAvailabilityRef}>
+                        <option value={"yes"}>Yes</option>
+                        <option value={"no"}>No</option>
+                      </select>
+                    </div>
+                  </>
+                )}
+              </div>
+              <div
+                className={"profile__leftPane__settings__discovery__container"}
+              >
+                <div className={"profile__leftPane__settings__discovery"}>
+                  <p>Discovery Settings</p>
+                </div>
+                {!editToggle &&
+                  discoveryData?.map((data: object, index: number) => (
+                    <div
+                      className={"profile__leftPane__settings__account__option"}
+                      key={index === 0 ? index + 13 : index * 3456}
+                    >
+                      <p>{Object.keys(data)}</p>
+                      <p
+                        className={
+                          "profile__leftPane__settings__account__content"
+                        }
+                      >
+                        {Object.values(data)}
+                      </p>
+                    </div>
+                  ))}
+                {editToggle && (
+                  <>
+                    <div
+                      className={"profile__leftPane__settings__account__option"}
+                    >
+                      <label>Looking for</label>
+                      <select ref={lookingForRef}>
+                        <option>Front-End Dev</option>
+                        <option>Back-End Dev</option>
+                        <option>Full-Stack Dev</option>
+                        <option>Does Programming</option>
+                      </select>
+                    </div>
+                    <div
+                      className={"profile__leftPane__settings__account__option"}
+                    >
+                      <label>Experience Level</label>
+                      <select ref={experienceLevelRef}>
+                        <option>Graduates</option>
+                        <option>Low (1-2y)</option>
+                        <option>Medium (2-5y)</option>
+                        <option>High (5y +)</option>
+                      </select>
+                    </div>
+                    <div
+                      className={"profile__leftPane__settings__account__option"}
+                    >
+                      <label>Radius</label>
+                      <input
+                        type={"number"}
+                        defaultValue={userData.matchRadius}
+                        className={
+                          "profile__leftPane__settings__account__content"
+                        }
+                        ref={matchRadiusRef}
+                      />
+                    </div>
+                  </>
+                )}
+              </div>
+            </>
+          )}
+          {favoritesActiveState && (
+            <>
+              {favorites.map((favorite: any) => (
                 <div
-                  className={"profile__leftPane__settings__account__option"}
-                  key={index === 0 ? index + 13 : index * 3456}
+                  key={Math.random()}
+                  className={
+                    "matchmaker__leftPane__content__matches__individual"
+                  }
                 >
-                  <p>{Object.keys(data)}</p>
-                  <p
-                    className={"profile__leftPane__settings__account__content"}
-                  >
-                    {Object.values(data)}
-                  </p>
+                  <img src={profilePicture} alt={"luci"} />
+                  <p>{favorite.name}</p>
                 </div>
               ))}
-            {editToggle && (
-              <>
-                <div className={"profile__leftPane__settings__account__option"}>
-                  <label>E-mail</label>
-                  <input
-                    type={"email"}
-                    defaultValue={userData.email}
-                    className={"profile__leftPane__settings__account__content"}
-                    ref={emailRef}
-                  />
-                </div>
-                <div className={"profile__leftPane__settings__account__option"}>
-                  <label>Phone</label>
-                  <input
-                    type={"text"}
-                    defaultValue={userData.phoneNumber}
-                    className={"profile__leftPane__settings__account__content"}
-                    ref={phoneRef}
-                  />
-                </div>
-                <div className={"profile__leftPane__settings__account__option"}>
-                  <label>Location</label>
-                  <input
-                    type={"text"}
-                    defaultValue={userData.location}
-                    className={"profile__leftPane__settings__account__content"}
-                    ref={locationRef}
-                  />
-                </div>
-                <div className={"profile__leftPane__settings__account__option"}>
-                  <label>Remote Availability</label>
-                  <select ref={remoteAvailabilityRef}>
-                    <option value={"yes"}>Yes</option>
-                    <option value={"no"}>No</option>
-                  </select>
-                </div>
-              </>
-            )}
-          </div>
-          <div className={"profile__leftPane__settings__discovery__container"}>
-            <div className={"profile__leftPane__settings__discovery"}>
-              <p>Discovery Settings</p>
-            </div>
-            {!editToggle &&
-              discoveryData?.map((data: object, index: number) => (
-                <div
-                  className={"profile__leftPane__settings__account__option"}
-                  key={index === 0 ? index + 13 : index * 3456}
-                >
-                  <p>{Object.keys(data)}</p>
-                  <p
-                    className={"profile__leftPane__settings__account__content"}
-                  >
-                    {Object.values(data)}
-                  </p>
-                </div>
-              ))}
-            {editToggle && (
-              <>
-                <div className={"profile__leftPane__settings__account__option"}>
-                  <label>Looking for</label>
-                  <select ref={lookingForRef}>
-                    <option>Front-End Dev</option>
-                    <option>Back-End Dev</option>
-                    <option>Full-Stack Dev</option>
-                    <option>Does Programming</option>
-                  </select>
-                </div>
-                <div className={"profile__leftPane__settings__account__option"}>
-                  <label>Experience Level</label>
-                  <select ref={experienceLevelRef}>
-                    <option>Graduates</option>
-                    <option>Low (1-2y)</option>
-                    <option>Medium (2-5y)</option>
-                    <option>High (5y +)</option>
-                  </select>
-                </div>
-                <div className={"profile__leftPane__settings__account__option"}>
-                  <label>Radius</label>
-                  <input
-                    type={"number"}
-                    defaultValue={userData.matchRadius}
-                    className={"profile__leftPane__settings__account__content"}
-                    ref={matchRadiusRef}
-                  />
-                </div>
-              </>
-            )}
-          </div>
+            </>
+          )}
         </div>
         <div className={"profile__leftPane__actions"}>
           <Button title={"Logout"} onClick={logoutHandler} danger={false} />
