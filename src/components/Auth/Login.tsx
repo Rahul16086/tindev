@@ -1,7 +1,7 @@
 import React, { useRef, useState } from "react";
 import "./Login.css";
 import Button from "../Button/Button";
-import { useNavigate } from "react-router-dom";
+import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setAuth } from "../../store/userSlice";
 
@@ -79,6 +79,7 @@ const Login = () => {
         </div>
         <div className={"login__form__login"}>
           <Button title={"Login"} type={"submit"} />
+          <Link to={"/forgotPassword"}>Forgotten password?</Link>
         </div>
       </form>
     </div>

@@ -1,10 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="29a0fe15-1213-41e5-8b63-67f3da8e732e" name="Changes" comment="Added functionality to the reject button in the profile card">
+    <list default="true" id="29a0fe15-1213-41e5-8b63-67f3da8e732e" name="Changes" comment="Made favorite button work and connected with backend code">
+      <change afterPath="$PROJECT_DIR$/src/components/Auth/ForgotPassword.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainApp/MatchMaker/RightPaneCards/RightPaneCardMain.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainApp/MatchMaker/RightPaneCards/RightPaneCardMain.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainApp/Profile/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainApp/Profile/Profile.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/Login.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/Login.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/Login.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -15,6 +17,7 @@
     <option name="RECENT_TEMPLATES">
       <list>
         <option value="TypeScript File" />
+        <option value="TypeScript JSX File" />
       </list>
     </option>
   </component>
@@ -56,7 +59,7 @@
       <option name="presentableId" value="Default" />
       <updated>1641936666531</updated>
       <workItem from="1641936668328" duration="97000" />
-      <workItem from="1642258302596" duration="54890000" />
+      <workItem from="1642258302596" duration="56921000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed matchmaker code and cleaned some code, added loader animation and fixed card infos">
       <created>1642424282948</created>
@@ -93,7 +96,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642713758098</updated>
     </task>
-    <option name="localTasksCounter" value="6" />
+    <task id="LOCAL-00006" summary="Made favorite button work and connected with backend code">
+      <created>1642784666418</created>
+      <option name="number" value="00006" />
+      <option name="presentableId" value="LOCAL-00006" />
+      <option name="project" value="LOCAL" />
+      <updated>1642784666418</updated>
+    </task>
+    <option name="localTasksCounter" value="7" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -116,7 +126,8 @@
     <MESSAGE value="Added edit functionality to profile and fixed some styling" />
     <MESSAGE value="Added styles for scroll bar and added authorization in every request" />
     <MESSAGE value="Added functionality to the reject button in the profile card" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added functionality to the reject button in the profile card" />
+    <MESSAGE value="Made favorite button work and connected with backend code" />
+    <option name="LAST_COMMIT_MESSAGE" value="Made favorite button work and connected with backend code" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

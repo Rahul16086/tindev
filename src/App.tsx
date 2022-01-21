@@ -10,6 +10,7 @@ import SignUpTwo from "./components/Auth/SignUpTwo";
 import { isAuth, setAuth } from "./store/userSlice";
 import { useSelector } from "react-redux";
 import { useDispatch } from "react-redux";
+import ForgotPassword from "./components/Auth/ForgotPassword";
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
@@ -56,6 +57,15 @@ const App: React.FC = () => {
             <>
               <Navbar />
               <Login />
+            </>
+          }
+        />
+        <Route
+          path={"/forgotPassword"}
+          element={
+            <>
+              <Navbar />
+              <ForgotPassword />
             </>
           }
         />
