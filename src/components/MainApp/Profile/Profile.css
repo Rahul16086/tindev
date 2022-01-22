@@ -65,14 +65,14 @@
 
 .profile__leftPane__settings__account button{
     color: #141B29;
-    font-size: max(1.2vw,12px);
+    font-size: max(1.2vw,10px);
     font-weight: 400;
     background-color: #5ac994;
     border: none;
     border-radius: 50px;
     width: 40%;
     min-width: 48px;
-    max-width: 60px;
+    max-width: 80px;
     cursor: pointer;
     transition: .5s;
     margin-right: 2px;
@@ -83,7 +83,6 @@
 }
 
 .profile__leftPane__settings__account__option{
-    /*border: 1px solid #5ac994;*/
     margin-top: 2px;
     display: flex;
     align-items: center;

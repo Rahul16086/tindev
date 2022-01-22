@@ -22,9 +22,6 @@
     align-items: center;
     margin-left: 10px;
     cursor: pointer;
-}
-
-.matchmaker__leftPane__nav__profile:hover{
     background-color: rgba(20, 27, 41, 0.37);
     border-radius: 50px;
 }
