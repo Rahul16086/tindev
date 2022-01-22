@@ -1,16 +1,12 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="29a0fe15-1213-41e5-8b63-67f3da8e732e" name="Changes" comment="Fixed some styles and sizes">
+    <list default="true" id="29a0fe15-1213-41e5-8b63-67f3da8e732e" name="Changes" comment="Connected with live backend and updated urls">
+      <change afterPath="$PROJECT_DIR$/src/components/Loader/LoaderSecond.css" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/components/Loader/LoaderSecond.tsx" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Auth/ForgotPassword.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/ForgotPassword.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Auth/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/Login.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Auth/ResetPassword.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/ResetPassword.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/Auth/SignUp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/SignUp.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/SignUp.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/SignUp.css" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/components/Auth/SignUpTwo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/SignUpTwo.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainApp/MatchMaker/MatchMaker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainApp/MatchMaker/MatchMaker.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainApp/Profile/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainApp/Profile/Profile.tsx" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/components/MainApp/Profile/ProfileEditInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainApp/Profile/ProfileEditInfo.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -22,11 +18,20 @@
       <list>
         <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
+        <option value="CSS File" />
       </list>
     </option>
   </component>
   <component name="Git.Settings">
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
+  <component name="GitSEFilterConfiguration">
+    <file-type-list>
+      <filtered-out-file-type name="LOCAL_BRANCH" />
+      <filtered-out-file-type name="REMOTE_BRANCH" />
+      <filtered-out-file-type name="TAG" />
+      <filtered-out-file-type name="COMMIT_BY_MESSAGE" />
+    </file-type-list>
   </component>
   <component name="MarkdownSettingsMigration">
     <option name="stateVersion" value="1" />
@@ -41,6 +46,7 @@
     <property name="RunOnceActivity.ShowReadmeOnStart" value="true" />
     <property name="WebServerToolWindowFactoryState" value="false" />
     <property name="last_opened_file_path" value="$USER_HOME$/AppData/Roaming/npm/node_modules/prettier" />
+    <property name="list.type.of.created.stylesheet" value="CSS" />
     <property name="node.js.detected.package.eslint" value="true" />
     <property name="node.js.selected.package.eslint" value="(autodetect)" />
     <property name="nodejs_package_manager_path" value="npm" />
@@ -63,7 +69,7 @@
       <option name="presentableId" value="Default" />
       <updated>1641936666531</updated>
       <workItem from="1641936668328" duration="97000" />
-      <workItem from="1642258302596" duration="73039000" />
+      <workItem from="1642258302596" duration="75907000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed matchmaker code and cleaned some code, added loader animation and fixed card infos">
       <created>1642424282948</created>
@@ -135,7 +141,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642866046733</updated>
     </task>
-    <option name="localTasksCounter" value="11" />
+    <task id="LOCAL-00011" summary="Connected with live backend and updated urls">
+      <created>1642867826401</created>
+      <option name="number" value="00011" />
+      <option name="presentableId" value="LOCAL-00011" />
+      <option name="project" value="LOCAL" />
+      <updated>1642867826401</updated>
+    </task>
+    <option name="localTasksCounter" value="12" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -163,7 +176,8 @@
     <MESSAGE value="Added reset password component and made it functional by connecting it with the DB" />
     <MESSAGE value="Added swipe functionality and fixed overall styles, fixed skills limit" />
     <MESSAGE value="Fixed some styles and sizes" />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixed some styles and sizes" />
+    <MESSAGE value="Connected with live backend and updated urls" />
+    <option name="LAST_COMMIT_MESSAGE" value="Connected with live backend and updated urls" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

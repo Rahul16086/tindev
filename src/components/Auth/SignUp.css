@@ -119,6 +119,22 @@
     justify-content: center;
 }
 
+.signup__form__postSignup{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+}
+
+.signup__form__postSignup >p {
+    margin-bottom: 10px;
+}
+.loader__container{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
 input:focus {
     outline: none !important;
     box-shadow: 0 0 5px #5ac994;
