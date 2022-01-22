@@ -30,7 +30,6 @@ const RightPaneCardMain: React.FC<{
   skills?: any;
 }> = (props) => {
   const token = localStorage.getItem("token");
-  console.log(props);
   const matchActions = async (
     actionUserId: string | undefined,
     action: string | undefined

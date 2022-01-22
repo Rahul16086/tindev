@@ -21,7 +21,7 @@ const MatchMaker: React.FC = () => {
       setLoading(true);
       const userId = localStorage.getItem("userId");
       const matchesRaw = await fetch(
-        "http://localhost:8080/app/matchmaker?userId=" + userId,
+        "https://rtindev.herokuapp.com/app/matchmaker?userId=" + userId,
         {
           headers: {
             Authorization: "Bearer " + token,

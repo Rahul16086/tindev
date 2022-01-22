@@ -26,7 +26,7 @@ const ProfileEditInfo: React.FC<{ userData: any; toggle?: any }> = (props) => {
 
     const userId = localStorage.getItem("userId");
     const updateInfo = await fetch(
-      "http://localhost:8080/profile/" + userId + "/infoUpdate",
+      "https://rtindev.herokuapp.com/profile/" + userId + "/infoUpdate",
       {
         method: "PUT",
         headers: {

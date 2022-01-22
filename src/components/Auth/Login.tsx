@@ -19,7 +19,7 @@ const Login = () => {
     const password: string | undefined = passwordRef.current?.value;
 
     try {
-      const dbLogin = await fetch("http://localhost:8080/auth/login", {
+      const dbLogin = await fetch("https://rtindev.herokuapp.com/auth/login", {
         method: "POST",
         headers: {
           "Content-Type": "application/json",

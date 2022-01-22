@@ -29,19 +29,22 @@ const SignUp: React.FC = () => {
         setError("Passwords doesn't match!");
         return;
       }
-      const dbSignup = await fetch("http://localhost:8080/auth/signup", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          email: email,
-          password: password,
-          name: name,
-          age: age,
-          phoneNumber: phone,
-        }),
-      });
+      const dbSignup = await fetch(
+        "https://rtindev.herokuapp.com/auth/signup",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            email: email,
+            password: password,
+            name: name,
+            age: age,
+            phoneNumber: phone,
+          }),
+        }
+      );
 
       const result = await dbSignup;
 

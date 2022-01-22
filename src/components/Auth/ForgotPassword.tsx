@@ -10,7 +10,7 @@ const ForgotPassword: React.FC = () => {
     const email: string | undefined = emailRef.current?.value;
     try {
       const dbForgotPassword = await fetch(
-        "http://localhost:8080/auth/forgotPassword",
+        "https://rtindev.herokuapp.com/auth/forgotPassword",
         {
           method: "POST",
           headers: {

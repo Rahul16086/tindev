@@ -36,27 +36,30 @@ const SignUpTwo: React.FC = () => {
       const skills = skillsRef.current.value;
       const userId = localStorage.getItem("userId");
 
-      const dbUserUpdate = await fetch("http://localhost:8080/auth/signupTwo", {
-        method: "PUT",
-        headers: {
-          "Content-Type": "application/json",
-        },
-        body: JSON.stringify({
-          location: location,
-          designation: designation,
-          experience: experience,
-          remoteAvailability: remoteAvailability,
-          lookingFor: lookingFor,
-          experienceLevel: experienceLevel,
-          matchRadius: matchRadius,
-          github: github,
-          portfolio: portfolio,
-          linkedIn: linkedIn,
-          summary: summary,
-          skills: skills,
-          userId: userId,
-        }),
-      });
+      const dbUserUpdate = await fetch(
+        "https://rtindev.herokuapp.com/auth/signupTwo",
+        {
+          method: "PUT",
+          headers: {
+            "Content-Type": "application/json",
+          },
+          body: JSON.stringify({
+            location: location,
+            designation: designation,
+            experience: experience,
+            remoteAvailability: remoteAvailability,
+            lookingFor: lookingFor,
+            experienceLevel: experienceLevel,
+            matchRadius: matchRadius,
+            github: github,
+            portfolio: portfolio,
+            linkedIn: linkedIn,
+            summary: summary,
+            skills: skills,
+            userId: userId,
+          }),
+        }
+      );
 
       const result = await dbUserUpdate;
 

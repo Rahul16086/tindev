@@ -13,7 +13,7 @@ const ResetPassword: React.FC = () => {
 
     try {
       const dbResetPassword = await fetch(
-        "http://localhost:8080/auth/resetPassword/" + params.resetToken,
+        "https://rtindev.herokuapp.com/auth/resetPassword/" + params.resetToken,
         {
           method: "PUT",
           headers: {

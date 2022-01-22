@@ -35,11 +35,14 @@ const Profile: React.FC = () => {
 
   const fetchUserData = async () => {
     const userId = localStorage.getItem("userId");
-    const user = await fetch("http://localhost:8080/profile/" + userId, {
-      headers: {
-        Authorization: "Bearer " + token,
-      },
-    });
+    const user = await fetch(
+      "https://rtindev.herokuapp.com/profile/" + userId,
+      {
+        headers: {
+          Authorization: "Bearer " + token,
+        },
+      }
+    );
     const userData = await user.json();
     setFavorites(userData.favorites);
     const { email, phoneNumber, location, remoteAvailability } = userData.user;
