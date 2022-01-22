@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="29a0fe15-1213-41e5-8b63-67f3da8e732e" name="Changes" comment="Added another loading component and fixed signup two form redirect">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/public/favicon.ico" beforeDir="false" afterPath="$PROJECT_DIR$/public/favicon.ico" afterDir="false" />
-    </list>
+    <list default="true" id="29a0fe15-1213-41e5-8b63-67f3da8e732e" name="Changes" comment="Updated favicon.ico to custom one" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -66,7 +63,7 @@
       <option name="presentableId" value="Default" />
       <updated>1641936666531</updated>
       <workItem from="1641936668328" duration="97000" />
-      <workItem from="1642258302596" duration="78237000" />
+      <workItem from="1642258302596" duration="78544000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed matchmaker code and cleaned some code, added loader animation and fixed card infos">
       <created>1642424282948</created>
@@ -152,7 +149,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642878615045</updated>
     </task>
-    <option name="localTasksCounter" value="13" />
+    <task id="LOCAL-00013" summary="Updated favicon.ico to custom one">
+      <created>1642886852316</created>
+      <option name="number" value="00013" />
+      <option name="presentableId" value="LOCAL-00013" />
+      <option name="project" value="LOCAL" />
+      <updated>1642886852316</updated>
+    </task>
+    <option name="localTasksCounter" value="14" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -182,7 +186,8 @@
     <MESSAGE value="Fixed some styles and sizes" />
     <MESSAGE value="Connected with live backend and updated urls" />
     <MESSAGE value="Added another loading component and fixed signup two form redirect" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added another loading component and fixed signup two form redirect" />
+    <MESSAGE value="Updated favicon.ico to custom one" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated favicon.ico to custom one" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
