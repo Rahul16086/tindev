@@ -132,6 +132,7 @@ const MatchMaker: React.FC = () => {
             actions={true}
             userData={currentCardData}
             onAdd={added}
+            skills={currentCardData.skills}
           />
           <RightPaneCardDevInfo data={currentRightCardData} />
         </div>

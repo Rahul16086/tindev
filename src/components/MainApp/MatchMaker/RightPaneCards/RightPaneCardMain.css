@@ -6,9 +6,15 @@
     border-radius: 10px;
     border: 1px solid rgba(255, 255, 255, 0.18);
     height: 70%;
-    width: 50%;
+    width: 100%;
     max-width: 250px;
     min-width: 220px;
+}
+
+.rightPane__mainCard__swiper{
+    height: 100%;
+    display: flex;
+    align-items: center;
 }
 
 .rightPane__mainCard__profilePicture {
@@ -31,11 +37,6 @@
     flex-direction: column;
     justify-content: space-between;
     margin: 5px;
-}
-
-.rightPane__mainCard__nameAge, .rightPane__mainCard__designation, .rightPane__mainCard__details, .rightPane__mainCard__skills, .rightPane__mainCard__reactions {
-    /*margin: 0 5px 0 5px;*/
-    /*border: 1px solid chartreuse;*/
 }
 
 .rightPane__mainCard__nameAge {
@@ -95,6 +96,7 @@
     padding: 0;
     justify-content: space-between;
     align-items: center;
+    margin-bottom: 2px;
 }
 
 .rightPane__mainCard__skills ul > li {
@@ -106,6 +108,7 @@
     text-align: center;
     padding: 1px;
     letter-spacing: 1px;
+    margin-bottom: 2px;
 }
 
 .rightPane__mainCard__reactions {

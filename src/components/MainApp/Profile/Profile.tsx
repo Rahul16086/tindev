@@ -41,7 +41,6 @@ const Profile: React.FC = () => {
       },
     });
     const userData = await user.json();
-    console.log(userData.favorites);
     setFavorites(userData.favorites);
     const { email, phoneNumber, location, remoteAvailability } = userData.user;
     const { lookingFor, experienceLevel, matchRadius } = userData.user;
@@ -152,7 +151,7 @@ const Profile: React.FC = () => {
           <div className={"profile__leftPane__nav__partTwo"}>
             <Link to={"/app/matchmaker"}>
               <button className={"profile__leftPane__nav__partTwo__button"}>
-                {"<match/>"}
+                {"<Match/>"}
               </button>
             </Link>
           </div>
@@ -319,21 +318,26 @@ const Profile: React.FC = () => {
               </div>
             </>
           )}
-          {favoritesActiveState && (
-            <>
-              {favorites.map((favorite: any) => (
-                <div
-                  key={Math.random()}
-                  className={
-                    "matchmaker__leftPane__content__matches__individual"
-                  }
-                >
-                  <img src={profilePicture} alt={"luci"} />
-                  <p>{favorite.name}</p>
-                </div>
-              ))}
-            </>
-          )}
+          {favoritesActiveState &&
+            (favorites.length > 0 ? (
+              <>
+                {favorites.map((favorite: any) => (
+                  <div
+                    key={Math.random()}
+                    className={
+                      "matchmaker__leftPane__content__matches__individual"
+                    }
+                  >
+                    <img src={profilePicture} alt={"luci"} />
+                    <p>{favorite.name}</p>
+                  </div>
+                ))}
+              </>
+            ) : (
+              <div className={"matchmaker__leftPane__favorites"}>
+                <p>No Favorites yet :(</p>
+              </div>
+            ))}
         </div>
         <div className={"profile__leftPane__actions"}>
           <Button title={"Logout"} onClick={logoutHandler} danger={false} />
@@ -343,7 +347,11 @@ const Profile: React.FC = () => {
       <div className={"profile__rightPane"}>
         {!editInfoToggle && (
           <div className={"profile__rightPane__cards"}>
-            <RightPaneCardMain actions={false} userData={userData} />
+            <RightPaneCardMain
+              actions={false}
+              userData={userData}
+              skills={userData.skills}
+            />
             <RightPaneCardDevInfo data={rightCardDevInfo} />
           </div>
         )}

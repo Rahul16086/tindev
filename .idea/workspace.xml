@@ -1,10 +1,16 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="29a0fe15-1213-41e5-8b63-67f3da8e732e" name="Changes" comment="Added forgot password component and added functionality for the same">
-      <change afterPath="$PROJECT_DIR$/src/components/Auth/ResetPassword.tsx" afterDir="false" />
+    <list default="true" id="29a0fe15-1213-41e5-8b63-67f3da8e732e" name="Changes" comment="Added reset password component and made it functional by connecting it with the DB">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package-lock.json" beforeDir="false" afterPath="$PROJECT_DIR$/package-lock.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/package.json" beforeDir="false" afterPath="$PROJECT_DIR$/package.json" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainApp/MatchMaker/MatchMaker.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainApp/MatchMaker/MatchMaker.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainApp/MatchMaker/MatchMaker.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainApp/MatchMaker/MatchMaker.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainApp/MatchMaker/RightPaneCards/RightPaneCardDevInfo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainApp/MatchMaker/RightPaneCards/RightPaneCardDevInfo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainApp/MatchMaker/RightPaneCards/RightPaneCardMain.css" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainApp/MatchMaker/RightPaneCards/RightPaneCardMain.css" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainApp/MatchMaker/RightPaneCards/RightPaneCardMain.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainApp/MatchMaker/RightPaneCards/RightPaneCardMain.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/MainApp/Profile/Profile.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/MainApp/Profile/Profile.tsx" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -57,7 +63,7 @@
       <option name="presentableId" value="Default" />
       <updated>1641936666531</updated>
       <workItem from="1641936668328" duration="97000" />
-      <workItem from="1642258302596" duration="61641000" />
+      <workItem from="1642258302596" duration="71052000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed matchmaker code and cleaned some code, added loader animation and fixed card infos">
       <created>1642424282948</created>
@@ -108,7 +114,14 @@
       <option name="project" value="LOCAL" />
       <updated>1642786879982</updated>
     </task>
-    <option name="localTasksCounter" value="8" />
+    <task id="LOCAL-00008" summary="Added reset password component and made it functional by connecting it with the DB">
+      <created>1642796428448</created>
+      <option name="number" value="00008" />
+      <option name="presentableId" value="LOCAL-00008" />
+      <option name="project" value="LOCAL" />
+      <updated>1642796428448</updated>
+    </task>
+    <option name="localTasksCounter" value="9" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -133,7 +146,8 @@
     <MESSAGE value="Added functionality to the reject button in the profile card" />
     <MESSAGE value="Made favorite button work and connected with backend code" />
     <MESSAGE value="Added forgot password component and added functionality for the same" />
-    <option name="LAST_COMMIT_MESSAGE" value="Added forgot password component and added functionality for the same" />
+    <MESSAGE value="Added reset password component and made it functional by connecting it with the DB" />
+    <option name="LAST_COMMIT_MESSAGE" value="Added reset password component and made it functional by connecting it with the DB" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />

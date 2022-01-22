@@ -2,6 +2,7 @@
     background-color: #141B29;
     height: 100vh;
     display: flex;
+    overflow: hidden;
 }
 
 .matchmaker__leftPane{
@@ -94,6 +95,14 @@
 .matchmaker__leftPane__content__matches__individual:hover{
     background-color: rgba(0, 255, 157, 0.2);
     cursor: pointer;
+}
+
+.matchmaker__leftPane__favorites{
+    font-weight: 200;
+    height: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
 }
 
 .matchmaker__rightPane{
