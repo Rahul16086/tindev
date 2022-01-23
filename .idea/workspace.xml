@@ -1,10 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="29a0fe15-1213-41e5-8b63-67f3da8e732e" name="Changes" comment="Updated favicon.ico to custom one">
-      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
-    </list>
+    <list default="true" id="29a0fe15-1213-41e5-8b63-67f3da8e732e" name="Changes" comment="Updated favicon.ico" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -54,6 +51,8 @@
   </component>
   <component name="RecentsManager">
     <key name="MoveFile.RECENT_KEYS">
+      <recent name="C:\Users\rahul\Documents\Dev\NodeJs\MyProjects\tinDev\Frontend\my-app\public" />
+      <recent name="C:\Users\rahul\Documents\Dev\NodeJs\MyProjects\tinDev\Frontend\my-app\src" />
       <recent name="C:\Users\rahul\Documents\Dev\NodeJs\MyProjects\tinDev\Frontend\my-app\src\images" />
     </key>
   </component>
@@ -66,7 +65,7 @@
       <option name="presentableId" value="Default" />
       <updated>1641936666531</updated>
       <workItem from="1641936668328" duration="97000" />
-      <workItem from="1642258302596" duration="78923000" />
+      <workItem from="1642258302596" duration="79307000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed matchmaker code and cleaned some code, added loader animation and fixed card infos">
       <created>1642424282948</created>
@@ -166,7 +165,21 @@
       <option name="project" value="LOCAL" />
       <updated>1642887089702</updated>
     </task>
-    <option name="localTasksCounter" value="15" />
+    <task id="LOCAL-00015" summary="Updated favicon.ico">
+      <created>1642939083728</created>
+      <option name="number" value="00015" />
+      <option name="presentableId" value="LOCAL-00015" />
+      <option name="project" value="LOCAL" />
+      <updated>1642939083728</updated>
+    </task>
+    <task id="LOCAL-00016" summary="Updated favicon.ico">
+      <created>1642939245833</created>
+      <option name="number" value="00016" />
+      <option name="presentableId" value="LOCAL-00016" />
+      <option name="project" value="LOCAL" />
+      <updated>1642939245833</updated>
+    </task>
+    <option name="localTasksCounter" value="17" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -197,7 +210,8 @@
     <MESSAGE value="Connected with live backend and updated urls" />
     <MESSAGE value="Added another loading component and fixed signup two form redirect" />
     <MESSAGE value="Updated favicon.ico to custom one" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated favicon.ico to custom one" />
+    <MESSAGE value="Updated favicon.ico" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated favicon.ico" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
