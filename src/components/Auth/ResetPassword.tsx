@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import Button from "../Button/Button";
 import { Link, useParams } from "react-router-dom";
+import IsAuth from "../../customHooks/isAuthHook";
 
 const ResetPassword: React.FC = () => {
   const params = useParams();
@@ -33,6 +34,8 @@ const ResetPassword: React.FC = () => {
       console.log(err);
     }
   };
+
+  IsAuth();
 
   return (
     <div className={"signup__mainContainer"}>

@@ -4,6 +4,7 @@ import Button from "../Button/Button";
 import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setAuth } from "../../store/userSlice";
+import IsAuth from "../../customHooks/isAuthHook";
 
 const Login = () => {
   const emailRef = useRef() as React.RefObject<any>;
@@ -11,6 +12,8 @@ const Login = () => {
   const navigate = useNavigate();
   const [error, setError] = useState("");
   const dispatch = useDispatch();
+
+  IsAuth();
 
   const loginHandler = async (event: { preventDefault: () => void }) => {
     event.preventDefault();

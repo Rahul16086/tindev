@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import "./SignUp.css";
 import Button from "../Button/Button";
 import { useNavigate } from "react-router-dom";
+import IsAuth from "../../customHooks/isAuthHook";
 
 const SignUp: React.FC = () => {
   const nameRef = useRef() as React.RefObject<any>;
@@ -60,7 +61,6 @@ const SignUp: React.FC = () => {
       console.log(resultJson);
       if (resultJson.userId) {
         localStorage.setItem("userId", resultJson.userId);
-        localStorage.setItem("token", resultJson.token);
         navigate("/signupTwo");
       }
     } catch (err: any) {
@@ -72,6 +72,8 @@ const SignUp: React.FC = () => {
   const errorCleaner = () => {
     setError("");
   };
+
+  IsAuth();
 
   return (
     <div className={"signup__mainContainer"} onClick={errorCleaner}>

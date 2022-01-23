@@ -2,6 +2,7 @@ import React, { useRef, useState } from "react";
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
 import LoaderSecond from "../Loader/LoaderSecond";
+import IsAuth from "../../customHooks/isAuthHook";
 
 const SignUpTwo: React.FC = () => {
   const locationRef = useRef() as React.RefObject<any>;
@@ -89,6 +90,8 @@ const SignUpTwo: React.FC = () => {
   const errorCleaner = () => {
     setError("");
   };
+
+  IsAuth();
 
   return (
     <div className={"signup__mainContainer"} onClick={errorCleaner}>

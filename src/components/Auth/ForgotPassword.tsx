@@ -1,6 +1,7 @@
 import React, { useRef, useState } from "react";
 import Button from "../Button/Button";
 import { Link } from "react-router-dom";
+import IsAuth from "../../customHooks/isAuthHook";
 
 const ForgotPassword: React.FC = () => {
   const emailRef = useRef() as React.RefObject<any>;
@@ -30,6 +31,9 @@ const ForgotPassword: React.FC = () => {
       console.log(err);
     }
   };
+
+  IsAuth();
+
   return (
     <div className={"signup__mainContainer"}>
       <form className={"login__form"} onSubmit={forgotPassword}>

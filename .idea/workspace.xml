@@ -1,7 +1,19 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="29a0fe15-1213-41e5-8b63-67f3da8e732e" name="Changes" comment="Updated favicon.ico" />
+    <list default="true" id="29a0fe15-1213-41e5-8b63-67f3da8e732e" name="Changes" comment="Updated favicon.ico in public directory">
+      <change afterPath="$PROJECT_DIR$/src/customHooks/isAuthHook.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/App.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/App.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/ForgotPassword.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/ForgotPassword.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/Login.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/Login.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/ResetPassword.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/ResetPassword.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/SignUp.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/SignUp.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/components/Auth/SignUpTwo.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/components/Auth/SignUpTwo.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/index.tsx" beforeDir="false" afterPath="$PROJECT_DIR$/src/index.tsx" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/index.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/index.ts" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/store/userSlice.ts" beforeDir="false" afterPath="$PROJECT_DIR$/src/store/userSlice.ts" afterDir="false" />
+    </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
@@ -10,9 +22,9 @@
   <component name="FileTemplateManagerImpl">
     <option name="RECENT_TEMPLATES">
       <list>
-        <option value="TypeScript File" />
         <option value="TypeScript JSX File" />
         <option value="CSS File" />
+        <option value="TypeScript File" />
       </list>
     </option>
   </component>
@@ -65,7 +77,7 @@
       <option name="presentableId" value="Default" />
       <updated>1641936666531</updated>
       <workItem from="1641936668328" duration="97000" />
-      <workItem from="1642258302596" duration="79307000" />
+      <workItem from="1642258302596" duration="88370000" />
     </task>
     <task id="LOCAL-00001" summary="Fixed matchmaker code and cleaned some code, added loader animation and fixed card infos">
       <created>1642424282948</created>
@@ -179,7 +191,21 @@
       <option name="project" value="LOCAL" />
       <updated>1642939245833</updated>
     </task>
-    <option name="localTasksCounter" value="17" />
+    <task id="LOCAL-00017" summary="Some changes">
+      <created>1642939599180</created>
+      <option name="number" value="00017" />
+      <option name="presentableId" value="LOCAL-00017" />
+      <option name="project" value="LOCAL" />
+      <updated>1642939599180</updated>
+    </task>
+    <task id="LOCAL-00018" summary="Updated favicon.ico in public directory">
+      <created>1642939683910</created>
+      <option name="number" value="00018" />
+      <option name="presentableId" value="LOCAL-00018" />
+      <option name="project" value="LOCAL" />
+      <updated>1642939683910</updated>
+    </task>
+    <option name="localTasksCounter" value="19" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -211,7 +237,9 @@
     <MESSAGE value="Added another loading component and fixed signup two form redirect" />
     <MESSAGE value="Updated favicon.ico to custom one" />
     <MESSAGE value="Updated favicon.ico" />
-    <option name="LAST_COMMIT_MESSAGE" value="Updated favicon.ico" />
+    <MESSAGE value="Some changes" />
+    <MESSAGE value="Updated favicon.ico in public directory" />
+    <option name="LAST_COMMIT_MESSAGE" value="Updated favicon.ico in public directory" />
   </component>
   <component name="XSLT-Support.FileAssociations.UIState">
     <expand />
