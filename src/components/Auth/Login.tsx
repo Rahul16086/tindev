@@ -5,18 +5,21 @@ import { Link, useNavigate } from "react-router-dom";
 import { useDispatch } from "react-redux";
 import { setAuth } from "../../store/userSlice";
 import IsAuth from "../../customHooks/isAuthHook";
+import LoaderSecond from "../Loader/LoaderSecond";
 
 const Login = () => {
   const emailRef = useRef() as React.RefObject<any>;
   const passwordRef = useRef() as React.RefObject<any>;
   const navigate = useNavigate();
   const [error, setError] = useState("");
+  const [loading, setLoading] = useState(false);
   const dispatch = useDispatch();
 
   IsAuth();
 
   const loginHandler = async (event: { preventDefault: () => void }) => {
     event.preventDefault();
+    setLoading(true);
 
     const email: string | undefined = emailRef.current?.value;
     const password: string | undefined = passwordRef.current?.value;
@@ -50,14 +53,17 @@ const Login = () => {
         localStorage.setItem("token", resultJson.token);
         localStorage.setItem("userId", resultJson.userId);
         dispatch(setAuth({ token: resultJson.token }));
+        setLoading(false);
         navigate("/app/matchmaker");
       }
     } catch (e) {
       console.log(e);
       if (e) {
+        setLoading(false);
         setError("Invalid credentials");
       }
     }
+    setLoading(false);
   };
 
   const errorCleaner = () => {
@@ -72,18 +78,27 @@ const Login = () => {
             <p>{error.toString()}</p>
           </div>
         )}
-        <div className={"login__form__email"}>
-          <label>E-Mail</label>
-          <input type={"email"} ref={emailRef} required />
-        </div>
-        <div className={"login__form__password"}>
-          <label>Password</label>
-          <input type={"password"} ref={passwordRef} required />
-        </div>
-        <div className={"login__form__login"}>
-          <Button title={"Login"} type={"submit"} />
-          <Link to={"/forgotPassword"}>Forgotten password?</Link>
-        </div>
+        {loading && (
+          <div className={"loader__container"}>
+            <LoaderSecond />
+          </div>
+        )}
+        {!loading && (
+          <>
+            <div className={"login__form__email"}>
+              <label>E-Mail</label>
+              <input type={"email"} ref={emailRef} required />
+            </div>
+            <div className={"login__form__password"}>
+              <label>Password</label>
+              <input type={"password"} ref={passwordRef} required />
+            </div>
+            <div className={"login__form__login"}>
+              <Button title={"Login"} type={"submit"} />
+              <Link to={"/forgotPassword"}>Forgotten password?</Link>
+            </div>
+          </>
+        )}
       </form>
     </div>
   );
