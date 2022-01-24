@@ -27,8 +27,4 @@ const userSlice = createSlice({
 
 export const { setAuth, setAuthLogout } = userSlice.actions;
 
-// export const isAuth = (state: { user: { isAuth: boolean } }) =>
-//   state.user.isAuth;
-// export const token = (state: { user: { token: string } }) => state.user.token;
-
 export default userSlice.reducer;

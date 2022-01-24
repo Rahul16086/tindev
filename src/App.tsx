@@ -1,7 +1,7 @@
-import React from "react";
+import React, { useEffect } from "react";
 import Navbar from "./components/Navbar/Navbar";
 import LandingPage from "./components/LandingPage/LandingPage";
-import { Navigate, Route, Routes } from "react-router-dom";
+import { Navigate, Route, Routes, useNavigate } from "react-router-dom";
 import SignUp from "./components/Auth/SignUp";
 import Login from "./components/Auth/Login";
 import MatchMaker from "./components/MainApp/MatchMaker/MatchMaker";
@@ -11,16 +11,38 @@ import { useDispatch, useSelector } from "react-redux";
 import ForgotPassword from "./components/Auth/ForgotPassword";
 import ResetPassword from "./components/Auth/ResetPassword";
 import { RootState } from "./store";
-import { setAuth } from "./store/userSlice";
+import { setAuth, setAuthLogout } from "./store/userSlice";
 
 const App: React.FC = () => {
   const dispatch = useDispatch();
+  const navigate = useNavigate();
 
-  const token: string | null = localStorage.getItem("token");
-  if (token) {
-    dispatch(setAuth({ token: token }));
-  }
-  const authenticated: boolean = useSelector<RootState>(
+  useEffect(() => {
+    const getVerified = async () => {
+      const token: string | null = localStorage.getItem("token");
+      const verification = await fetch(
+        "https://rtindev.herokuapp.com/auth/verifyToken",
+        {
+          headers: {
+            Authorization: "Bearer " + token,
+          },
+        }
+      );
+
+      const verificationJson = await verification.json();
+      if (verificationJson.success) {
+        dispatch(setAuth({ token: token }));
+        navigate("/app/matchmaker");
+      } else {
+        dispatch(setAuthLogout());
+        localStorage.removeItem("token");
+        localStorage.removeItem("userId");
+      }
+    };
+    getVerified();
+  }, [dispatch]);
+
+  const authenticated = useSelector<RootState>(
     (state) => state.user.isAuth
   ) as boolean;
 
@@ -83,7 +105,6 @@ const App: React.FC = () => {
             </>
           }
         />
-        {console.log(authenticated)}
         {authenticated && (
           <Route path={"/app/matchmaker"} element={<MatchMaker />} />
         )}

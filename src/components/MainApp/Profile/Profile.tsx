@@ -10,6 +10,7 @@ import RightPaneCardMain from "../MatchMaker/RightPaneCards/RightPaneCardMain";
 import { user } from "../MatchMaker/RightPaneCards/RightPaneCardMain";
 import RightPaneCardDevInfo from "../MatchMaker/RightPaneCards/RightPaneCardDevInfo";
 import ProfileEditInfo from "./ProfileEditInfo";
+import LoaderSecond from "../../Loader/LoaderSecond";
 
 const Profile: React.FC = () => {
   const dispatch = useDispatch();
@@ -32,6 +33,7 @@ const Profile: React.FC = () => {
   const locationRef = useRef() as React.RefObject<any>;
   const matchRadiusRef = useRef() as React.RefObject<any>;
   const token = localStorage.getItem("token");
+  const [loading, setLoading] = useState(false);
 
   const fetchUserData = async () => {
     const userId = localStorage.getItem("userId");
@@ -91,6 +93,7 @@ const Profile: React.FC = () => {
   };
 
   const updateSettings = async () => {
+    setLoading(true);
     const newEmail = emailRef.current.value;
     const newPhone = phoneRef.current.value;
     const newLocation = locationRef.current.value;
@@ -101,7 +104,7 @@ const Profile: React.FC = () => {
 
     const userId = localStorage.getItem("userId");
     const updateData = await fetch(
-      "http://localhost:8080/profile/" + userId + "/settingsUpdate",
+      "https://rtindev.herokuapp.com/profile/" + userId + "/settingsUpdate",
       {
         method: "PUT",
         headers: {
@@ -124,6 +127,7 @@ const Profile: React.FC = () => {
       setEditToggle(() => !editToggle);
       setUpdated(() => !updated);
     }
+    setLoading(false);
   };
 
   const editInfoToggler = (value: boolean) => {
@@ -174,7 +178,12 @@ const Profile: React.FC = () => {
               Favorites
             </p>
           </div>
-          {settingsActiveState && (
+          {loading && (
+            <div className={"loader__container"}>
+              <LoaderSecond />
+            </div>
+          )}
+          {settingsActiveState && !loading && (
             <>
               <div
                 className={"profile__leftPane__settings__account__container"}
